@@ -37,14 +37,14 @@ namespace TSP_HarmonySearch
             {33,57, 21, 34, 18, 52, 19, 33, 51, 16, 21, 0 }};
 
         const int N = 12;
-
+        static int[][] HarmoniHafiza = new int[HMS][];
         static void Main(string[] args)
         {
             Random randomizer = new Random();
             int[] Sehirler = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
-            int[][] HarmoniHafiza = new int[HMS][];
+
             int[] harmoni = Enumerable.Repeat(-1, N).ToArray();
-            
+
             #region Hafızanın rassal olarak doldurulması
             for (int h = 0; h < HarmoniHafiza.Length; h++)
             {
@@ -56,7 +56,7 @@ namespace TSP_HarmonySearch
                         sehir = randomizer.Next(Sehirler.Length);
                         harmoni[i] = sehir;
                         sehir = randomizer.Next(Sehirler.Length);
-                    }while(harmoni.Contains(sehir));
+                    } while (harmoni.Contains(sehir));
 
                 }
                 harmoni[N - 1] = harmoni[0];
@@ -65,7 +65,7 @@ namespace TSP_HarmonySearch
             }
 
             //Harmoni hafıza sırala
-            EstetikDegerHesapla(HarmoniHafiza);
+            EstetikDegerHesapla();
             #endregion
 
             for (int l = 0; l < Iter; l++)
@@ -138,22 +138,17 @@ namespace TSP_HarmonySearch
             Console.WriteLine("En iyi deger : " + string.Join("-", HarmoniHafiza[n]) + " Min: " + min);
             Console.ReadKey();
         }
-        static void EstetikDegerHesapla(int[][] HarmoniHafiza)
+        static void EstetikDegerHesapla()
         {
 
-            double distance = 0;
+            double resultDistance = 0;
             for (int i = 0; i < HarmoniHafiza.Length; i++)
             {
                 var harmoni = HarmoniHafiza[i];
-                for (var j = 0; j < (N - 1); j++)
-                {
-                    var Kaynak = harmoni[j];
-                    var Hedef = harmoni[(j + 1)];
-                    var d = SehirlerArasiMesafe1[Kaynak, Hedef];
-                    distance = distance + d;
-                }
-                EstetikDegerleri[i] = distance;
-                distance = 0;
+                resultDistance = HarmoniEstetikDegerHesapla(harmoni);
+
+                EstetikDegerleri[i] = resultDistance;
+                resultDistance = 0;
             }
         }
         static double HarmoniEstetikDegerHesapla(int[] harmoni)
