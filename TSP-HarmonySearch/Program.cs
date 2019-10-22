@@ -8,7 +8,7 @@ namespace TSP_HarmonySearch
 {
     class Program
     {
-
+        static Random randomizer = new Random();
         const int HMS = 10;
         const double PAR = 0.45;
         const double HMCR = 0.95;
@@ -36,28 +36,29 @@ namespace TSP_HarmonySearch
             {14,40, 17, 14, 20, 31, 40, 53, 31, 34, 0 , 21},
             {33,57, 21, 34, 18, 52, 19, 33, 51, 16, 21, 0 }};
 
-        const int N = 12;
+        static int[] Sehirler = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
+        const int N = 13;
         static int[][] HarmoniHafiza = new int[HMS][];
         static void Main(string[] args)
         {
-            Random randomizer = new Random();
-            int[] Sehirler = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
 
+
+            int sehir = -1;
             int[] harmoni = Enumerable.Repeat(-1, N).ToArray();
 
             #region Hafızanın rassal olarak doldurulması
             for (int h = 0; h < HarmoniHafiza.Length; h++)
             {
+
                 for (int i = 0; i < Sehirler.Length; i++)
                 {
-                    int sehir = -1;
-                    do
-                    {
-                        sehir = randomizer.Next(Sehirler.Length);
-                        harmoni[i] = sehir;
-                        sehir = randomizer.Next(Sehirler.Length);
-                    } while (harmoni.Contains(sehir));
 
+                    sehir = RassalNotaSec();
+                    while (harmoni.Any(a => a == sehir))
+                    {
+                        sehir = RassalNotaSec();
+                    }
+                    harmoni[i] = sehir;
                 }
                 harmoni[N - 1] = harmoni[0];
                 HarmoniHafiza[h] = harmoni;
@@ -65,28 +66,33 @@ namespace TSP_HarmonySearch
             }
 
             //Harmoni hafıza sırala
-            EstetikDegerHesapla();
+            HarmoniHafizasiEstetikDegerHesapla();
             #endregion
 
             for (int l = 0; l < Iter; l++)
             {
-                int Sehir = -1;
+
                 //her şehri gez
                 int[] esinti = Enumerable.Repeat(-1, N).ToArray();
                 harmoni = Enumerable.Repeat(-1, N).ToArray();
+
                 for (int s = 0; s < Sehirler.Length; s++)
                 {
                     var PHMCR = randomizer.NextDouble();
                     if (PHMCR < HMCR)
                     {
-                        do
+                        int index = 0;
+                        sehir = RassalNotaSec();
+                        var iFromHM = randomizer.Next(0, HMS);
+                        esinti = HarmoniHafiza[iFromHM];
+                        while (harmoni.Any(a => a == sehir))
                         {
-                            var iFromHM = randomizer.Next(0, HMS);
-                            esinti = HarmoniHafiza[iFromHM];
-                            var t = randomizer.Next(0, N);
-                            Sehir = esinti[t];
-                            harmoni[s] = Sehir;
-                        } while (harmoni.Where(a => a == Sehir).Count() > 1);
+                            index = RassalNotaSec();
+                            sehir = esinti[index];
+                        }
+                        
+                        harmoni[s] = sehir;
+
 
                         //Ton kontrolü
                         var PPAR = randomizer.NextDouble();
@@ -94,33 +100,33 @@ namespace TSP_HarmonySearch
                         {
                             //Komşularından biriyle değiştir
 
-                            var r = randomizer.Next(0, N);
-                            var sehir = harmoni[r];
+                            var r = RassalNotaSec();
+                            sehir = harmoni[r];
                             var temp = harmoni[s];
                             if (sehir > -1 && temp > -1)
                             {
                                 harmoni[s] = sehir;
                                 harmoni[r] = temp;
                             }
-
                         }
                     }
                     else
                     {
                         //sehri rassal seç
                         //Komşularından biriyle değiştir
-                        int yeniSehir = -1;
-                        do
+                        var iFromHM = randomizer.Next(0, HMS);
+                        esinti = HarmoniHafiza[iFromHM];
+                        int ir = RassalNotaSec();
+                        sehir = esinti[ir];
+                        while (harmoni.Any(a => a == sehir))
                         {
-                            var iFromHM = randomizer.Next(0, HMS);
-                            esinti = HarmoniHafiza[iFromHM];
-                            var ir = randomizer.Next(0, N);//rassal secilecek sherin indexi
-                            yeniSehir = esinti[ir];
-                            harmoni[s] = esinti[ir];
-                        } while (harmoni.Where(a => a == yeniSehir).Count() > 1);
-
+                            ir = RassalNotaSec();
+                            sehir = esinti[ir];
+                        }
+                        harmoni[s] = esinti[ir];
                     }
                 }
+
                 harmoni[N - 1] = harmoni[0];
                 double val = EstetikDegerleri.Max();
                 var result = HarmoniEstetikDegerHesapla(harmoni);
@@ -138,16 +144,18 @@ namespace TSP_HarmonySearch
             Console.WriteLine("En iyi deger : " + string.Join("-", HarmoniHafiza[n]) + " Min: " + min);
             Console.ReadKey();
         }
-        static void EstetikDegerHesapla()
+        static void HarmoniHafizasiEstetikDegerHesapla()
         {
-
+            Console.WriteLine("--------------Hafiza-------------------");
             double resultDistance = 0;
             for (int i = 0; i < HarmoniHafiza.Length; i++)
             {
+                
                 var harmoni = HarmoniHafiza[i];
                 resultDistance = HarmoniEstetikDegerHesapla(harmoni);
 
                 EstetikDegerleri[i] = resultDistance;
+                Console.WriteLine("En iyi deger : " + string.Join("-", harmoni));
                 resultDistance = 0;
             }
         }
@@ -155,15 +163,21 @@ namespace TSP_HarmonySearch
         {
 
             double distance = 0;
-
+            int kaynak;
+            int hedef;
             for (var j = 0; j < (N - 1); j++)
             {
-                var Kaynak = harmoni[j];
-                var Hedef = harmoni[(j + 1)];
-                var d = SehirlerArasiMesafe1[Kaynak, Hedef];
+                kaynak = harmoni[j];
+                hedef = harmoni[(j + 1)];
+                var d = SehirlerArasiMesafe1[kaynak, hedef];
                 distance = distance + d;
             }
             return distance;
+        }
+
+        static int RassalNotaSec()
+        {
+            return randomizer.Next(Sehirler.Length);
         }
     }
 }
