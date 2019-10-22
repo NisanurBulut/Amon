@@ -8,18 +8,18 @@ namespace TSP_HarmonySearch
 {
     class Program
     {
-        const int N = 6;
+        const int N = 7;
         const int HMS = 10;
         const double PAR = 0.45;
         const double HMCR = 0.95;
-        const int Iter = 350;
+        const int Iter = 1500;
         static double[] EstetikDegerleri = new double[10];
         static void Main(string[] args)
         {
             Random randomizer = new Random();
             int[] Sehirler = { 0, 1, 2, 3,4,5 };
             int[][] HarmoniHafiza = new int[HMS][];
-            int[] harmoni = new int[N] { -1, -1, -1, -1, -1 ,-1};
+            int[] harmoni = new int[N] { -1, -1, -1, -1, -1 ,-1,-1};
 
             #region Hafızanın rassal olarak doldurulması
             for (int h = 0; h < HarmoniHafiza.Length; h++)
@@ -34,8 +34,9 @@ namespace TSP_HarmonySearch
                     }
                     harmoni[i] = sehir;
                 }
+                harmoni[N - 1] = harmoni[0];
                 HarmoniHafiza[h] = harmoni;
-                harmoni = new int[N] { -1, -1, -1, -1, -1,-1 };
+                harmoni = new int[N] { -1, -1, -1, -1, -1,-1,-1 };
             }
 
             //Harmoni hafıza sırala
@@ -46,8 +47,8 @@ namespace TSP_HarmonySearch
             {
                 int Sehir = -1;
                 //her şehri gez
-                int[] esinti = new int[N] { -1, -1, -1, -1, -1 ,-1};
-                harmoni = new int[N] { -1, -1, -1, -1, -1,-1 };
+                int[] esinti = new int[N] { -1, -1, -1, -1, -1 ,-1,-1};
+                harmoni = new int[N] { -1, -1, -1, -1, -1,-1,-1 };
                 for (int s = 0; s < Sehirler.Length; s++)
                 {
                     var PHMCR = randomizer.NextDouble();
@@ -95,6 +96,7 @@ namespace TSP_HarmonySearch
 
                     }
                 }
+                harmoni[N - 1] = harmoni[0];
                 double val = EstetikDegerleri.Max();
                 var result = HarmoniEstetikDegerHesapla(harmoni);
 
