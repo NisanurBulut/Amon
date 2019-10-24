@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TSP_HarmonySearch
 {
     class Program
     {
         static Random randomizer = new Random();
-        const int HMS = 10;
-        const double PAR = 0.45;
-        const double HMCR = 0.95;
-        const int Iter = 105000;
-        static double[] EstetikDegerleri = new double[10];
+        const int HMS = 20;
+        const double PAR = 0.65;
+        const double HMCR = 0.8;
+        const int Iter = 5000000;
+        static double[] EstetikDegerleri = new double[HMS];
 
         static int[,] SehirlerArasiUzaklik = new int[,] {
                {0,12,29,22,13,24 },
@@ -38,6 +35,7 @@ namespace TSP_HarmonySearch
             {14,40, 17, 14, 20, 31, 40, 53, 31, 34, 0 , 21},
             {33,57, 21, 34, 18, 52, 19, 33, 51, 16, 21, 0 }};
 
+      
         static int[] Sehirler = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
 
         const int N = 13;
@@ -47,7 +45,7 @@ namespace TSP_HarmonySearch
         static void Main(string[] args)
         {
 
-
+            int k = 0;
             int sehir = -1;
             int[] harmoni = Enumerable.Repeat(-1, N).ToArray();
 
@@ -57,7 +55,7 @@ namespace TSP_HarmonySearch
 
                 for (int i = 0; i < Sehirler.Length; i++)
                 {
-                    sehir = RassalNotaSec(harmoni);         
+                    sehir = RassalNotaSec(harmoni);
                     harmoni[i] = sehir;
                 }
                 harmoni[N - 1] = harmoni[0];
@@ -76,70 +74,70 @@ namespace TSP_HarmonySearch
                 int[] hafizadanHarmoni = Enumerable.Repeat(-1, N).ToArray();
                 harmoni = Enumerable.Repeat(-1, N).ToArray();
 
-                for (int s = 0; s < Sehirler.Length; s++)
+                for (int s = 0; s < Sehirler.Length;)
                 {
+
                     var PHMCR = randomizer.NextDouble();
                     if (PHMCR < HMCR)
                     {
-                        int index = 0;
-                       
-
-                        var iFromHM = randomizer.Next(0, HMS);//Hafızadan harmoni alınır
-                        hafizadanHarmoni = HarmoniHafiza[iFromHM];
-                        
-                        while (harmoni.Any(a => a == sehir))
-                        {
-                            index = RassalNotaSec();
-                            sehir = hafizadanHarmoni[index];
-                        }
-
-                        harmoni[s] = sehir;
-
-
                         //Ton kontrolü
                         var PPAR = randomizer.NextDouble();
-                        if (PPAR < PAR)
+                        if (harmoni[s] < 0)
                         {
-                            //Komşularından biriyle değiştir
-
-                            var r = RassalNotaSec();
-                            sehir = harmoni[r];
-                            var temp = harmoni[s];
-                            if (sehir > -1 && temp > -1)
+                            harmoni[s] = HafizadanRassalHarmoniSec(harmoni);
+                            if (PPAR < PAR)
                             {
+                                k = 0;
+                                int temp = -1;
+
+                                var r = RassalNotaSec();
+                                sehir = harmoni[r];
+                                temp = harmoni[s];
                                 harmoni[s] = sehir;
                                 harmoni[r] = temp;
+
+                                if (sehir > -1 && temp > -1)
+                                {
+                                    s++;
+                                }
                             }
+                            else
+                            {
+                                s++;
+                            }
+                        }
+                        else
+                        {
+                            s++;
                         }
                     }
                     else
                     {
-                        //sehri rassal seç
-                        //Komşularından biriyle değiştir
-                        var iFromHM = randomizer.Next(0, HMS);
-                        hafizadanHarmoni = HarmoniHafiza[iFromHM];
-                        int ir = RassalNotaSec();
-                        sehir = hafizadanHarmoni[ir];
-                        while (harmoni.Any(a => a == sehir))
+                        if (harmoni[s] < 0)
                         {
-                            ir = RassalNotaSec();
-                            sehir = hafizadanHarmoni[ir];
+                            harmoni[s] = RassalNotaSec(harmoni);
                         }
-                        harmoni[s] = hafizadanHarmoni[ir];
+                        s++;
                     }
+                  
                 }
 
                 harmoni[N - 1] = harmoni[0];
-                double val = EstetikDegerleri.Max();
+                double maxEstetik = EstetikDegerleri.Max();
+               
                 var result = HarmoniEstetikDegerHesapla(harmoni);
 
-                if (result < val)
+                if (result < maxEstetik)
                 {
-                    var ind = Array.IndexOf(EstetikDegerleri, val);
+                    var ind = Array.IndexOf(EstetikDegerleri, maxEstetik);
                     HarmoniHafiza[ind] = harmoni;
                     EstetikDegerleri[ind] = result;
-                    Console.WriteLine("Döngü: "+l+ " Rota : " + string.Join("-", HarmoniHafiza[ind]) + " Estetik: " + result);
+                    double minEstetik = EstetikDegerleri.Min();
+                    Console.WriteLine("Döngü: " + l + " Rota : " + string.Join("-", harmoni) +  
+                                      " En Kötü Estetik : "+ maxEstetik + " Bulunan Estetik: " + result + 
+                                      " En Iyi Estetik : "+ minEstetik);
                 }
+            
             }
             var min = EstetikDegerleri.Min();
             var n = Array.IndexOf(EstetikDegerleri, min);
@@ -152,14 +150,15 @@ namespace TSP_HarmonySearch
             double resultDistance = 0;
             for (int i = 0; i < HarmoniHafiza.Length; i++)
             {
-                
+
                 var harmoni = HarmoniHafiza[i];
                 resultDistance = HarmoniEstetikDegerHesapla(harmoni);
 
                 EstetikDegerleri[i] = resultDistance;
-                Console.WriteLine("En iyi deger : " + string.Join("-", harmoni));
+                Console.WriteLine("Rota : " + string.Join("-", harmoni) + " Estetik Değeri : " + resultDistance);
                 resultDistance = 0;
             }
+            Console.WriteLine("-------------------------------------------\n");
         }
         static double HarmoniEstetikDegerHesapla(int[] harmoni)
         {
@@ -180,14 +179,24 @@ namespace TSP_HarmonySearch
         {
             return randomizer.Next(Sehirler.Length);
         }
-        static int RassalNotaSec(int [] harmoni)
+        static int RassalNotaSec(int[] harmoni)
         {
-            int [] RassalListe = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
+            int[] RassalListe = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
             // Remove all values2 from values1.
             var result = RassalListe.Except(harmoni);
 
             return result.ElementAtOrDefault(randomizer.Next(result.Count()));
         }
-       
+
+        static int HafizadanRassalHarmoniSec(int[] harmoni )
+        {
+            var iFromHM = randomizer.Next(0, HMS);//Hafızadan harmoni alınır
+            var harmoniHafiza = HarmoniHafiza[iFromHM];
+            // Remove all values2 from values1.
+            var result = harmoniHafiza.Except(harmoni);
+
+            return result.ElementAtOrDefault(randomizer.Next(result.Count()));
+        }
+
     }
 }
