@@ -1,14 +1,12 @@
 const mix = require('laravel-mix');
 
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel applications. By default, we are compiling the CSS
- | file for the application as well as bundling up all the JS files.
- |
+/**
+ * CSS ile yazdığımız kodlarda ihtiyaç duyduğumuz özellik ve eklentiler için saf CSS
+ * kodlarına yapılacak tüm işlemleri PostCSS aracılığı ile yapmamız mümkün.
+ * Ayrıca PostCSS bu işlemleri JavaScript yardımı ile yapmaktadır.
+ * PostCSS ‘in birden fazla eklentisi mevcuttur Sass kodlarını CSS ‘e çevirmek
+ * veya yazdığımız CSS kodlarından beğenmediğimiz satırları çıkarabilmek gibi aslında
+ * bir sürü eklentiside mevcut. Autoprefixer ise bunlardan biri.
  */
 
 mix.js('resources/js/app.js', 'public/js')
