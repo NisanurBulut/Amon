@@ -11,4 +11,8 @@ class DemandsController extends Controller
     {
         return View('demands.index');
     }
+    public function create()
+    {
+        return View('demands.create');
+    }
 }

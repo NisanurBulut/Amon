@@ -18,4 +18,5 @@ Route::post('/login',[AuthController::class, 'loginStore']);
 
 Route::get('/settings',[SettingsController::class, 'index'])->name('settings.index');
 
+Route::get('/demands/create',[DemandsController::class,'create'])->name('demands.create');
 Route::get('/demands',[DemandsController::class,'index'])->name('demands.index');
