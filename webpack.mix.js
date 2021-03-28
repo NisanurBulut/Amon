@@ -10,11 +10,11 @@ const mix = require("laravel-mix");
  */
 
 mix.js("resources/js/app.js", "public/js")
-    .copy("semantic/dist/semantic.min.css", "public/css/semantic.min.css")
-    .copy("semantic/dist/semantic.min.js", "public/js/semantic.min.js")
     .copy("node_modules/jquery/dist/jquery.js", "public/js/jquery.js")
+    .copy("semantic/dist/semantic.min.js", "public/js/semantic.min.js")
     .copy("node_modules/datatables.net/js/jquery.dataTables.min.js", "public/js/jquery.datatables.net.min.js")
     .copy('node_modules/datatables.net-se/js/dataTables.semanticui.min.js','public/js/dataTables.semanticui.min.js')
+    .copy("semantic/dist/semantic.min.css", "public/css/semantic.min.css")
     .copy('node_modules/datatables.net-se/css/dataTables.semanticui.min.css','public/css/dataTables.semanticui.min.css')
     .postCss("resources/css/app.css", "public/css", [
         //

@@ -5,7 +5,7 @@ use App\Http\Controllers\Auth\AuthController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/register',[AuthController::class, 'register'])->name('auth.register');
 Route::post('/register',[AuthController::class, 'registerStore']);

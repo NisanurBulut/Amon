@@ -7,10 +7,10 @@
 
     <title>Amon</title>
     <script src="{{ asset('js/jquery.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/jquery.dataTables.min.js') }}" defer></script>
-    <script src="{{ asset('js/dataTables.semanticui.min.js') }}" defer></script>
-    <script src="{{ asset('js/semantic.min.js') }}" defer></script>
+    <script src="{{ asset('js/semantic.min.js') }}"></script>
+    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+    <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('js/dataTables.semanticui.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
     <!-- Fonts -->
 
@@ -23,7 +23,7 @@
 <body id="root">
     <div class="ui padded grid">
         <div class="ui purple inverted borderless top fixed fluid menu">
-            <a class="header item">AMON</a>
+            <a class="header item" href="{{ route('welcome') }}">AMON</a>
             <div class="right menu">
                 <a class="item" {{ route('auth.login') }}>Login</a>
                 <a class="item" {{ route('auth.register') }}>Register</a>

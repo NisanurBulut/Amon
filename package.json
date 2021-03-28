@@ -18,7 +18,8 @@
     "dependencies": {
         "datatables.net-se": "^1.10.24",
         "highcharts": "^9.0.1",
-        "jquery": "^3.6.0",
+        "imports-loader": "^2.0.0",
+        "jquery": "^3.3.1",
         "semantic-ui": "^2.4.2"
     }
 }

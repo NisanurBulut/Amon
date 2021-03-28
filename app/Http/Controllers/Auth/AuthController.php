@@ -13,6 +13,7 @@ class AuthController extends Controller
     }
     public function register()
     {
+        dd(350);
         return view('auth.register');
     }
     public function login()
