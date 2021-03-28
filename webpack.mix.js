@@ -16,6 +16,7 @@ mix.js("resources/js/app.js", "public/js")
     .copy('node_modules/datatables.net-se/js/dataTables.semanticui.min.js','public/js/dataTables.semanticui.min.js')
     .copy("semantic/dist/semantic.min.css", "public/css/semantic.min.css")
     .copy('node_modules/datatables.net-se/css/dataTables.semanticui.min.css','public/css/dataTables.semanticui.min.css')
+    .js('resources/js/settings.view.js','public/js/settings.view.js')
     .postCss("resources/css/app.css", "public/css", [
         //
     ]);

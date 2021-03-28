@@ -24,29 +24,25 @@
           <div class="item">
             <div class="ui small input"><input placeholder="Search..." /></div>
           </div>
-          <a class="item" href="{{ route('auth.login') }}">Login</a>
-          <a class="item" href="{{ route('auth.register') }}">Register</a>
-          <a class="item">Dashboard</a> <a class="item">Settings</a>
+          {{-- <a class="item" href="{{ route('auth.login') }}">Login</a>
+          <a class="item" href="{{ route('auth.register') }}">Register</a> --}}
+          <a class="item" href="{{ route('settings.index') }}">Settings</a>
+          <a class="item">Dashboard</a>
           <a class="item">Profile</a> <a class="item">Help</a>
         </div>
       </div>
     </div>
-    <div class="ui padded grid">
-
-
+    <div class="ui padded grid" id="content">
       @yield('content')
       </div>
     </div>
   </body>
-
-
-  {{-- <link rel="stylesheet" type="text/css" href=~/node_modules/semantic/dist/semantic.min.css"> --}}
-  {{-- <script src="~/node_modules/semantic/dist/semantic.min.js" defer></script> --}}
- <script src="{{ asset('js/jquery.js') }}" defer></script>
- <script src="{{ asset('js/main.js') }}" defer></script>
- <script src="{{ asset('js/semantic.min.js') }}" defer></script>
- <script  src="{{ asset('js/jquery.datatables.net.min.js') }} " defer></script>
- <script src="{{ asset('js/dataTables.semanticui.min.js') }}" defer></script>
- <script src="{{ asset('js/app.js') }}" defer></script>
+  <script src="{{ asset('js/jquery.js') }}" defer></script>
+  <script src="{{ asset('js/main.js') }}" defer></script>
+  <script src="{{ asset('js/semantic.min.js') }}" defer></script>
+  <script  src="{{ asset('js/jquery.datatables.net.min.js') }} " defer></script>
+  <script src="{{ asset('js/dataTables.semanticui.min.js') }}" defer></script>
+  <script src="{{ asset('js/app.js') }}" defer></script>
+  @yield('scripts')
 
   </html>
