@@ -14,5 +14,10 @@
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14"
+    },
+    "dependencies": {
+        "datatables.net-se": "^1.10.24",
+        "jquery": "^3.6.0",
+        "semantic-ui": "^2.4.2"
     }
 }
