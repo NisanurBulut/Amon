@@ -31,7 +31,8 @@
           </div>
           {{-- <a class="item" href="{{ route('auth.login') }}">Login</a>
           <a class="item" href="{{ route('auth.register') }}">Register</a> --}}
-          <a class="item" href="{{ route('settings.index') }}">Settings</a>
+          <a class="item" href="{{ route('settings.index') }}">Ayarlar</a>
+          <a class="item" href="{{ route('demands.index') }}">Talepler</a>
           <a class="item">Dashboard</a>
           <a class="item">Profile</a> <a class="item">Help</a>
         </div>
