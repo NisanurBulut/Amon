@@ -1,5 +1,7 @@
 @extends('layouts.layout')
 @section('content')
+
+
     <div class="ui middle large center aligned aligned grid" id="content">
         <div class="html center ui top attached segment">
             <div class="ui huge top attached label">
@@ -12,4 +14,7 @@
             </div>
         </div>
     </div>
+
+
+
 @endsection
