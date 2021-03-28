@@ -1,11 +1,14 @@
-
-      body {
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+      html,body {
         margin: 0px;
         padding: 0px;
         overflow-x: hidden;
         min-width: 320px;
         background: #FFFFFF;
+        font-family: 'Open Sans';
+        font-size: 15px;
       }
+
       .authContent {
         display: flex;
         justify-content: center;

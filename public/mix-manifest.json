@@ -7,5 +7,6 @@
     "/js/jquery.datatables.net.min.js": "/js/jquery.datatables.net.min.js",
     "/js/dataTables.semanticui.min.js": "/js/dataTables.semanticui.min.js",
     "/css/semantic.min.css": "/css/semantic.min.css",
-    "/css/dataTables.semanticui.min.css": "/css/dataTables.semanticui.min.css"
+    "/css/dataTables.semanticui.min.css": "/css/dataTables.semanticui.min.css",
+    "/css/icon.min.css": "/css/icon.min.css"
 }
