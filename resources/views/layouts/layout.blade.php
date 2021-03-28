@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Amon</title>
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}" defer></script>
@@ -24,7 +24,7 @@
 <body id="root">
     <div class="ui tablet computer only padded grid">
       <div class="ui inverted borderless top fixed fluid menu">
-        <a class="header item">Project name</a>
+        <a class="header item">AMON</a>
         <div class="right menu">
           <div class="item">
             <div class="ui small input"><input placeholder="Search..." /></div>
