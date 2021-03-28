@@ -1,4 +1,4 @@
 @extends('layouts.layout')
 @section('content')
-Nisanur
+<button class="ui button red">test</button>
 @endsection

@@ -23,7 +23,7 @@
 </head>
 <body id="root">
     <div class="ui tablet computer only padded grid">
-      <div class="ui inverted borderless top fixed fluid menu">
+      <div class="ui orange inverted borderless top fixed fluid menu">
         <a class="header item">AMON</a>
         <div class="right menu">
           <div class="item">
@@ -34,51 +34,9 @@
         </div>
       </div>
     </div>
-    <div class="ui mobile only padded grid">
-      <div class="ui top fixed borderless fluid inverted menu">
-        <a class="header item">Project Name</a>
-        <div class="right menu">
-          <div class="item">
-            <button class="ui icon toggle basic inverted button">
-              <i class="content icon"></i>
-            </button>
-          </div>
-        </div>
-        <div class="ui vertical borderless inverted fluid menu">
-          <a class="item">Dashboard</a> <a class="item">Settings</a>
-          <a class="item">Profile</a> <a class="item">Help</a>
-          <div class="ui fitted divider"></div>
-          <div class="item">
-            <div class="ui small input"><input placeholder="Search..." /></div>
-          </div>
-        </div>
-      </div>
-    </div>
+
     <div class="ui padded grid">
-      <div
-        class="three wide tablet only three wide computer only column"
-        id="sidebar"
-      >
-        <div class="ui vertical borderless fluid text menu">
-          <a class="active item">Overview</a> <a class="item">Reports</a>
-          <a class="item">Analytics</a> <a class="item">Export</a>
-          <div class="ui hidden divider"></div>
-          <a class="item">Nav item</a> <a class="item">Nav item again</a>
-          <a class="item">One more nav</a> <a class="item">Another nav item</a>
-          <a class="item">More navigation</a>
-          <div class="ui hidden divider"></div>
-          <a class="item">Macintosh</a> <a class="item">Linux</a>
-          <a class="item">Windows</a>
-        </div>
-      </div>
-      <div
-        class="sixteen wide mobile thirteen wide tablet thirteen wide computer right floated column"
-        id="content"
-      >
-        <div class="ui padded grid">
-            @yield('content')
-        </div>
-      </div>
+        @yield('content')
     </div>
   </body>
 </html>
