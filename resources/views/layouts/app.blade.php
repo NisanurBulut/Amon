@@ -13,7 +13,6 @@
     <script src="{{ asset('js/semantic.min.js') }}" defer></script>
     <script src="{{ asset('js/main.js') }}"></script>
     <!-- Fonts -->
-    <link href="{{ asset('fonts/icons.ttf') }}" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic.min.css') }}">
@@ -22,21 +21,19 @@
     <link href="/css/main.css" rel="stylesheet">
 </head>
 <body id="root">
-    <div class="ui tablet computer only padded grid">
-      <div class="ui purple inverted borderless top fixed fluid menu">
-        <a class="header item">AMON</a>
-        <div class="right menu">
-          <div class="item">
-            <div class="ui small input"><input placeholder="Search..." /></div>
-          </div>
-          <a class="item">Dashboard</a> <a class="item">Settings</a>
-          <a class="item">Profile</a> <a class="item">Help</a>
+    <div class="ui padded grid">
+        <div class="ui purple inverted borderless top fixed fluid menu">
+            <a class="header item">AMON</a>
+            <div class="right menu">
+                <a class="item" {{ route('auth.login') }}>Login</a>
+                <a class="item" {{ route('auth.register') }}>Register</a>
+            </div>
         </div>
-      </div>
     </div>
 
-    <div class="ui padded grid">
-        @yield('content')
-    </div>
-  </body>
+   <div class="authContent">
+    @yield('content')
+   </div>
+</body>
+
 </html>
