@@ -11,4 +11,8 @@ class SettingsController extends Controller
     {
         return View('settings.index');
     }
+    public function createStatus()
+    {
+        return View('settings.createStatus');
+    }
 }

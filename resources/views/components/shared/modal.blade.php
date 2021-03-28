@@ -1,3 +1,3 @@
-<div class="ui modal" id="modalCreateDemand">
+<div class="ui modal" id="sharedModal">
 
 </div>

@@ -38,7 +38,7 @@
         </div>
       </div>
     </div>
-    <div class="ui padded grid main ui content" id="">
+    <div class="ui padded" id="">
       @yield('content')
       </div>
     </div>

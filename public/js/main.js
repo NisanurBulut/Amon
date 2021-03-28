@@ -5,7 +5,7 @@ $(document).ready(function(){
 
 function loadModal(href, modalId)
 {
-
+debugger;
 let itemModal =document.getElementById(`${modalId}`);
   $(itemModal).modal({
       blurring: true,
@@ -20,8 +20,9 @@ let itemModal =document.getElementById(`${modalId}`);
       }
   }).modal('show')
 }
-$(document).on('click', '#btnDemandAdd', function(event) {
+$(document).on('click', '#btnAdd', function(event) {
   event.preventDefault();
   let href = $(this).attr('href');
-  loadModal(href,'modalCreateDemand');
+  debugger;
+  loadModal(href,'sharedModal');
 });
