@@ -18,13 +18,17 @@ Route::post('/login',[AuthController::class, 'loginStore']);
 
 Route::get('/settings',[SettingsController::class, 'index'])->name('settings.index');
 Route::get('/settings/createStatus',[SettingsController::class, 'createStatus'])->name('settings.createStatus');
-Route::get('/settings/createState',[SettingsController::class, 'createState'])->name('settings.createState');
-Route::get('/settings/createColor',[SettingsController::class, 'createColor'])->name('settings.createColor');
-Route::get('/settings/getColors',[SettingsController::class, 'getColors'])->name('settings.getColors');
-Route::post('/settings/storeColor',[SettingsController::class, 'storeColor'])->name('settings.storeColor');
-Route::get('/settings/getStates',[SettingsController::class, 'getStates'])->name('settings.getStates');
-Route::get('/settings/getSituations',[SettingsController::class, 'getSituations'])->name('settings.getSituations');
 Route::post('/settings/storeStatus',[SettingsController::class, 'storeStatus'])->name('settings.storeStatus');
+Route::get('/settings/getSituations',[SettingsController::class, 'getSituations'])->name('settings.getSituations');
+
+Route::get('/settings/createState',[SettingsController::class, 'createState'])->name('settings.createState');
+Route::get('/settings/getStates',[SettingsController::class, 'getStates'])->name('settings.getStates');
+Route::post('/settings/storeState',[SettingsController::class, 'storeState'])->name('settings.storeState');
+
+
+Route::get('/settings/getColors',[SettingsController::class, 'getColors'])->name('settings.getColors');
+Route::get('/settings/createColor',[SettingsController::class, 'createColor'])->name('settings.createColor');
+Route::post('/settings/storeColor',[SettingsController::class, 'storeColor'])->name('settings.storeColor');
 
 
 Route::get('/demands/create',[DemandsController::class,'create'])->name('demands.create');

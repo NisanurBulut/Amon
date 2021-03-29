@@ -28,6 +28,12 @@ class SettingsController extends Controller
      ->get();
        return json_encode($states);
     }
+    public function getStates()
+    {
+        $states = StateModel::select('id','name')->get();
+
+       return json_encode($states);
+    }
     public function createStatus()
     {
         $colorSelects = ColorModel::select('id as id','description as name')->get();
@@ -65,6 +71,17 @@ class SettingsController extends Controller
         $status->color_id=$request['color_id'];
 
         $status->save();
+        return back();
+    }
+    public function storeState(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:50',
+        ]);
+
+        $state = new StateModel();
+        $state->name=$request['name'];
+        $state->save();
         return back();
     }
 }
