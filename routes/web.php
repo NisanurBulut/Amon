@@ -17,7 +17,6 @@ Route::get('/login',[AuthController::class, 'login'])->name('auth.login');
 Route::post('/login',[AuthController::class, 'loginStore']);
 
 Route::get('/settings',[SettingsController::class, 'index'])->name('settings.index');
-Route::get('/settings/destroySetting/{id}',[SettingsController::class, 'destroySetting'])->name('settings.destroySetting');
 
 Route::get('/settings/createStatus',[SettingsController::class, 'createStatus'])->name('settings.createStatus');
 Route::post('/settings/storeStatus',[SettingsController::class, 'storeStatus'])->name('settings.storeStatus');
