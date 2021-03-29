@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Settings;
 
-use App\Http\Controllers\Controller;
+use App\Models\ColorModel;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class SettingsController extends Controller
 {
@@ -26,10 +27,14 @@ class SettingsController extends Controller
     public function storeColor(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|unique:posts|max:20',
+            'name' => 'required|max:20',
             'description' => 'required',
         ]);
+        $color = new ColorModel();
+        $color->name=$request['name'];
+        $color->description=$request['description'];
 
+        $color->save();
         return back();
     }
 }
