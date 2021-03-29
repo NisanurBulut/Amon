@@ -1,6 +1,6 @@
 @props(['colorSelects' => $colorSelects])
 
-<div class="ui selection dropdown">
+<div class="ui search selection dropdown">
     <input type="hidden" name="color_id">
     <i class="dropdown icon"></i>
     <div class="default text">Renk</div>
