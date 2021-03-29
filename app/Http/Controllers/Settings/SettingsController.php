@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Settings;
 
 use App\Models\ColorModel;
+use App\Models\StateModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use DB;
 class SettingsController extends Controller
 {
     public function index()
@@ -17,6 +18,14 @@ class SettingsController extends Controller
         $colors = ColorModel::select('id','name','description')->get();
 
        return json_encode($colors);
+    }
+    public function getStates()
+    {
+        $states = DB::table('tstate')
+        ->join('tcolor', 'tstate.color_id', '=', 'tcolor.id')
+     ->select('tstate.id','tcolor.name as color','tstate.name')
+     ->get();
+       return json_encode($states);
     }
     public function createStatus()
     {

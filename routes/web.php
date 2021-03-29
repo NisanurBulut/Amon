@@ -22,6 +22,7 @@ Route::get('/settings/createState',[SettingsController::class, 'createState'])->
 Route::get('/settings/createColor',[SettingsController::class, 'createColor'])->name('settings.createColor');
 Route::get('/settings/getColors',[SettingsController::class, 'getColors'])->name('settings.getColors');
 Route::post('/settings/storeColor',[SettingsController::class, 'storeColor'])->name('settings.storeColor');
+Route::get('/settings/getStates',[SettingsController::class, 'getStates'])->name('settings.getStates');
 
 
 Route::get('/demands/create',[DemandsController::class,'create'])->name('demands.create');
