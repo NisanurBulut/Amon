@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Settings;
 
 use App\Models\ColorModel;
 use App\Models\StateModel;
+use App\Models\StatusModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
@@ -21,9 +22,9 @@ class SettingsController extends Controller
     }
     public function getSituations()
     {
-        $states = DB::table('tstate')
-        ->join('tcolor', 'tstate.color_id', '=', 'tcolor.id')
-     ->select('tstate.id','tcolor.description as color','tstate.name')
+        $states = DB::table('tstatus')
+        ->join('tcolor', 'tstatus.color_id', '=', 'tcolor.id')
+     ->select('tstatus.id','tcolor.description as color','tstatus.name')
      ->get();
        return json_encode($states);
     }
