@@ -1,6 +1,8 @@
 $(document).ready(function () {
     $(".tabItem").tab();
     $(".ui.modal").modal();
+
+
     function loadModal(href, modalId) {
         event.preventDefault();
         let itemModal = document.getElementById(`${modalId}`);
@@ -41,7 +43,6 @@ $(document).ready(function () {
                 { data: "name" },
                 { data: "description" },
                 {data:'id', render: function(data, type) {
-                  console.log(data,type);
                   return '<a><i class="blue edit icon"></i></a>'+
                          '<a><i class="red trash icon"></i></a>';
                 }}
@@ -63,7 +64,6 @@ $(document).ready(function () {
                 { data: "name" },
                 { data: "color" },
                 {data:'id', render: function(data, type) {
-                  console.log(data,type);
                   return '<a><i class="blue edit icon"></i></a>'+
                          '<a><i class="red trash icon"></i></a>';
                 }}

@@ -29,7 +29,8 @@ class SettingsController extends Controller
     }
     public function createStatus()
     {
-        return View('settings.create-status');
+        $colorSelects = ColorModel::select('id','name')->get();
+        return View('settings.create-status', ['colorSelects'=>$colorSelects]);
     }
     public function createState()
     {
@@ -50,6 +51,19 @@ class SettingsController extends Controller
         $color->description=$request['description'];
 
         $color->save();
+        return back();
+    }
+    public function storeStatus(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:20',
+            'color_id' => 'required',
+        ]);
+        $status = new StatusModel();
+        $status->name=$request['name'];
+        $status->color_id=$request['color_id'];
+
+        $status->save();
         return back();
     }
 }
