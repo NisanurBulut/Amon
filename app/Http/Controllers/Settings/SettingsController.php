@@ -10,8 +10,13 @@ class SettingsController extends Controller
 {
     public function index()
     {
-        $colors = ColorModel::all();
-        return View('settings.index',['colors'=>$colors]);
+        return View('settings.index');
+    }
+    public function getColors()
+    {
+        $colors = ColorModel::select('id','name','description')->get();
+
+       return json_encode($colors);
     }
     public function createStatus()
     {

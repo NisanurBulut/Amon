@@ -20,6 +20,7 @@ Route::get('/settings',[SettingsController::class, 'index'])->name('settings.ind
 Route::get('/settings/createStatus',[SettingsController::class, 'createStatus'])->name('settings.createStatus');
 Route::get('/settings/createState',[SettingsController::class, 'createState'])->name('settings.createState');
 Route::get('/settings/createColor',[SettingsController::class, 'createColor'])->name('settings.createColor');
+Route::get('/settings/getColors',[SettingsController::class, 'getColors'])->name('settings.getColors');
 Route::post('/settings/storeColor',[SettingsController::class, 'storeColor'])->name('settings.storeColor');
 
 
