@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTstateTable extends Migration
+class DeleteColorIdColumnFromTcolor extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateTstateTable extends Migration
      */
     public function up()
     {
-        Schema::create('tstate', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
+        Schema::table('tstate', function (Blueprint $table) {
+            $table->dropColumn(['color_id']);
         });
     }
 
@@ -27,6 +25,8 @@ class CreateTstateTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tstate');
+        Schema::table('tstate', function (Blueprint $table) {
+
+        });
     }
 }

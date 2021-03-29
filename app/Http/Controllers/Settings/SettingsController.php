@@ -29,7 +29,7 @@ class SettingsController extends Controller
     }
     public function createStatus()
     {
-        $colorSelects = ColorModel::select('id','name')->get();
+        $colorSelects = ColorModel::select('id as id','description as name')->get();
         return View('settings.create-status', ['colorSelects'=>$colorSelects]);
     }
     public function createState()

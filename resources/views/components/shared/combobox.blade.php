@@ -8,7 +8,6 @@
         @foreach ($colorSelects as $colorSelect)
         <div class="item" data-value="{{ $colorSelect->id }}">{{ $colorSelect->name }}</div>
         @endforeach
-
     </div>
 </div>
 <script>
