@@ -25,7 +25,11 @@ class SettingsController extends Controller
     }
     public function storeColor(Request $request)
     {
-        dd($request);
+        $this->validate($request, [
+            'name' => 'required|unique:posts|max:20',
+            'description' => 'required',
+        ]);
+
         return back();
     }
 }
