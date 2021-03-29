@@ -10,6 +10,7 @@
                 <th>id</th>
                 <th>Name</th>
                 <th>Description</th>
+                <th>İşlem</th>
             </tr>
         </thead>
     </table>

@@ -40,6 +40,11 @@ $(document).ready(function () {
                 { data: "id" },
                 { data: "name" },
                 { data: "description" },
+                {data:'id', render: function(data, type) {
+                  console.log(data,type);
+                  return '<a><i class="blue edit icon"></i></a>'+
+                         '<a><i class="red trash icon"></i></a>';
+                }}
             ],
             bPaginate: true,
             bLengthChange: false,
