@@ -19,7 +19,6 @@
                 <div class="ui tab segment" data-tab="tabStatusColor" style="">
                     <x-state-color />
                 </div>
-
             </div>
     </div>
 

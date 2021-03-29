@@ -8,6 +8,7 @@ use App\Models\StatusModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use Session;
 class SettingsController extends Controller
 {
     public function index()
@@ -89,7 +90,7 @@ class SettingsController extends Controller
     {
         $state = DB::table('tstate')->where('id',$id);
         $state->delete();
-        return back();
+        return back()->with('message','Aşama silme işlemi başarıyla gerçekleşti');
     }
     public function destroyColor($id)
     {
