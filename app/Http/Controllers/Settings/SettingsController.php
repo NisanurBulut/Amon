@@ -19,11 +19,11 @@ class SettingsController extends Controller
 
        return json_encode($colors);
     }
-    public function getStates()
+    public function getSituations()
     {
         $states = DB::table('tstate')
         ->join('tcolor', 'tstate.color_id', '=', 'tcolor.id')
-     ->select('tstate.id','tcolor.name as color','tstate.name')
+     ->select('tstate.id','tcolor.description as color','tstate.name')
      ->get();
        return json_encode($states);
     }

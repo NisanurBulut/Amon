@@ -29,7 +29,7 @@ $(document).ready(function () {
         loadModal(href, "sharedModal");
     });
 
-    function loadDataToTable() {
+    function loadColorsToTable() {
         var table = $("#dtColor").DataTable({
             serverSide: false,
             ajax: {
@@ -51,6 +51,28 @@ $(document).ready(function () {
             pageLength: 5,
         });
     }
-
-    loadDataToTable();
+    function loadSituationsToTable() {
+        var table = $("#dtStatus").DataTable({
+            serverSide: false,
+            ajax: {
+                url: "/settings/getSituations",
+                dataSrc: "",
+            },
+            columns: [
+                { data: "id" },
+                { data: "name" },
+                { data: "color" },
+                {data:'id', render: function(data, type) {
+                  console.log(data,type);
+                  return '<a><i class="blue edit icon"></i></a>'+
+                         '<a><i class="red trash icon"></i></a>';
+                }}
+            ],
+            bPaginate: true,
+            bLengthChange: false,
+            pageLength: 5,
+        });
+    }
+    loadColorsToTable();
+    loadSituationsToTable();
 });
