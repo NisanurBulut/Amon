@@ -49,5 +49,7 @@
   <script  src="{{ asset('js/jquery.datatables.net.min.js') }} " defer></script>
   <script src="{{ asset('js/dataTables.semanticui.min.js') }}" defer></script>
   <script src="{{ asset('js/app.js') }}" defer></script>
+  <script src="{{ asset('js/activate.semanticui-components.js') }}" defer></script>
+  <script src="{{ asset('js/dataTables.load.js') }}" defer></script>
   @yield('scripts')
   </html>
