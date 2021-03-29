@@ -1,4 +1,9 @@
-<table id="dtDemandStatus" class="ui celled table">
+<x-shared.modal />
+<div class="ui top attached segment">
+<a id="btnStateAdd" class="ui huge top attached label btnModalOpen" href="/settings/createState">
+    <i style="float: right;" data-content="Copy code" class="plus icon"></i>
+</a>
+<table id="dtDemandState" class="ui celled table">
     <thead>
         <tr>
             <th>Id</th>
@@ -41,3 +46,4 @@
         </tr>
     </tbody>
 </table>
+</div>

@@ -1,5 +1,4 @@
-<i class="close icon"></i>
-<div class="content">
+
   <form class="ui form">
 
     <h4 class="ui dividing header">Shipping Information</h4>

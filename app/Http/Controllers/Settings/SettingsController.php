@@ -13,6 +13,11 @@ class SettingsController extends Controller
     }
     public function createStatus()
     {
-        return View('settings.createStatus');
+        return View('settings.create-status');
     }
+    public function createState()
+    {
+        return View('settings.create-state');
+    }
+
 }
