@@ -30,7 +30,7 @@ $(document).ready(function () {
     });
 
     function loadDataToTable() {
-        var table = $("#example").DataTable({
+        var table = $("#dtColor").DataTable({
             serverSide: false,
             ajax: {
                 url: "/settings/getColors",
