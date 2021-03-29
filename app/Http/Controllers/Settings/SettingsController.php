@@ -84,6 +84,11 @@ class SettingsController extends Controller
         $state->save();
         return back();
     }
+    public function destroySetting($id)
+    {
+        dd($id);
+       return view('components.shared.confirm', ['$id'=>$id]);
+    }
     public function destroyState($id)
     {
         $state = DB::table('tstate')->findOrFail($id);
@@ -92,7 +97,7 @@ class SettingsController extends Controller
     }
     public function destroyColor($id)
     {
-        $state = DB::table('tcolor')->findOrFail($id);
+        $state = DB::table('tcolor')->where('id',$id);
         $state->delete();
         return back();
     }

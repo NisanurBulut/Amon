@@ -6,7 +6,7 @@ $(document).ready(function () {
         let itemModal = document.getElementById(`${modalId}`);
         $(itemModal)
             .modal({
-                blurring: true,
+                blurring: false,
                 observeChanges: true,
                 transition: "scale",
                 onVisible: function (callback) {
@@ -28,5 +28,11 @@ $(document).ready(function () {
         let href = $(this).attr("href");
         loadModal(href, "sharedModal");
     });
-
+    $(document).on("click", ".btnConfirmModalOpen", function (event) {
+        event.preventDefault();
+        let href = $(this).attr("href");
+        let id = $(this).attr("id");
+        $('#confirmDeleteForm').attr('action',href);
+        $('#confirmModal').modal('setting', 'closable', false).modal('show');
+    });
 });

@@ -1,4 +1,3 @@
-
     function loadColorsToTable() {
         var table = $("#dtColor").DataTable({
             serverSide: false,
@@ -10,10 +9,13 @@
                 { data: "id" },
                 { data: "name" },
                 { data: "description" },
-                {data:'id', render: function(data, type) {
-                  return '<a><i class="blue edit icon"></i></a>'+
-                         '<a><i class="red trash icon"></i></a>';
-                }}
+                { data:'id', render: function(data, type) {
+
+                    return  `<a class="btnConfirmModalOpen" id='${data}' href="/settings/destroyColor/${data}">`+
+                            `<i class="red trash icon"></i></a>`;
+
+                }
+            }
             ],
             bPaginate: true,
             bLengthChange: false,
