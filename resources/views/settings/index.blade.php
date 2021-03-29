@@ -16,7 +16,7 @@
                     <x-demand-state />
                 </div>
                 <div class="ui active tab segment" data-tab="tabStatusColor" style="">
-                    <x-state-color />
+                    <x-state-color :colors="$colors" />
                 </div>
             </div>
     </div>

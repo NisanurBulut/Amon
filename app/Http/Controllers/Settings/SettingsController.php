@@ -10,7 +10,8 @@ class SettingsController extends Controller
 {
     public function index()
     {
-        return View('settings.index');
+        $colors = ColorModel::all();
+        return View('settings.index',['colors'=>$colors]);
     }
     public function createStatus()
     {
