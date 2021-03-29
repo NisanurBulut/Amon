@@ -19,5 +19,13 @@ class SettingsController extends Controller
     {
         return View('settings.create-state');
     }
-
+    public function createColor()
+    {
+        return View('settings.create-color');
+    }
+    public function storeColor(Request $request)
+    {
+        dd($request);
+        return back();
+    }
 }

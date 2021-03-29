@@ -19,6 +19,8 @@ Route::post('/login',[AuthController::class, 'loginStore']);
 Route::get('/settings',[SettingsController::class, 'index'])->name('settings.index');
 Route::get('/settings/createStatus',[SettingsController::class, 'createStatus'])->name('settings.createStatus');
 Route::get('/settings/createState',[SettingsController::class, 'createState'])->name('settings.createState');
+Route::get('/settings/createColor',[SettingsController::class, 'createColor'])->name('settings.createColor');
+Route::post('/settings/storeColor',[SettingsController::class, 'storeColor'])->name('settings.storeColor');
 
 
 Route::get('/demands/create',[DemandsController::class,'create'])->name('demands.create');
