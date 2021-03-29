@@ -30,20 +30,22 @@ $(document).ready(function () {
     });
 
     function loadDataToTable() {
-      var table= $("#example").DataTable({
-
-         "serverSide":true,
-            "ajax":{
-              "url": "/settings/getColors",
-              "dataSrc":"",
+        var table = $("#example").DataTable({
+            serverSide: false,
+            ajax: {
+                url: "/settings/getColors",
+                dataSrc: "",
             },
-            "columns": [
-              { "data": "id" },
-              { "data": "name" },
-              { "data": "description" }
-          ]
+            columns: [
+                { data: "id" },
+                { data: "name" },
+                { data: "description" },
+            ],
+            bPaginate: true,
+            bLengthChange: false,
+            pageLength: 5,
         });
     }
 
-loadDataToTable();
+    loadDataToTable();
 });
