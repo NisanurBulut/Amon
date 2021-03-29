@@ -84,4 +84,22 @@ class SettingsController extends Controller
         $state->save();
         return back();
     }
+    public function destroyState($id)
+    {
+        $state = DB::table('tstate')->findOrFail($id);
+        $state->delete();
+        return back();
+    }
+    public function destroyColor($id)
+    {
+        $state = DB::table('tcolor')->findOrFail($id);
+        $state->delete();
+        return back();
+    }
+    public function destroyStatus($id)
+    {
+        $state = DB::table('tstatus')->findOrFail($id);
+        $state->delete();
+        return back();
+    }
 }
