@@ -2,17 +2,22 @@
 <x-shared.modal />
 <x-shared.confirm />
 <div class="ui fluid card">
-    <div class="content" style="cursor:pointer">
-        <i class="right floated green eye icon large"></i>
-        <i class="right floated edit blue icon large"></i>
-        <i class="right floated trash red icon large"></i>
+    <div class="content">
+       <div class="hoverBtns">
+        <a class="btnModalOpen" href="{{ route('apps.editApp',$app->id) }}">
+          <i class="right floated edit blue icon large"></i>
+          </a>
+        <a class="btnConfirmModalOpen" href="{{ route('apps.destroyApp',$app->id) }}">
+          <i class="right floated trash red icon large"></i>
+        </a>
+       </div>
         <div class="header">
             <div class="left floated author">
                 <img class="ui avatar image" src="{{ $app->url_icon }}"> {{ $app->name }}
             </div>
         </div>
     </div>
-<div class="content">
+<div class="content" style="overflow: auto;max-height: 100px;min-height:100px;">
   <div class="description">
     <p>{{ $app->description }}</p>
   </div>

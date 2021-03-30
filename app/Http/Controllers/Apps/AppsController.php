@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Apps;
 use App\Models\AppModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use DB;
 class AppsController extends Controller
 {
     public function index()
@@ -23,6 +23,13 @@ class AppsController extends Controller
     {
         return View('apps.forms.create-app');
     }
+    public function destroyApp($id)
+    {
+        $appEntity = DB::table('tapp')->where('id',$id);
+        $appEntity->delete();
+        return redirect('apps')->with('message','Aşama silme işlemi başarıyla gerçekleşti');
+    }
+
     public function storeApp(Request $request)
     {
         $this->validate($request, [
@@ -41,8 +48,10 @@ class AppsController extends Controller
     }
     public function editApp($id)
     {
-        return View('apps.forms.edit-app');
+        $appEntity = DB::table('tapp')->where('id',$id)->get();
+        return view('apps.forms.edit-app', ["app"=>$app, "id"=>id]);
     }
+
     public function updateApp(Request $request,$id)
     {
         return View('apps.forms.edit-app');
