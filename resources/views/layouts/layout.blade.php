@@ -24,8 +24,7 @@
 </head>
 
 <body id="">
-    <div class="">
-        <div class="ui purple inverted borderless top fixed fluid menu">
+        <div class="ui purple inverted borderless top fixed fluid pointing menu">
             <a class="header item" href="{{ route('welcome') }}">AMON</a>
             <div class="right menu">
                 <div class="item">
@@ -56,10 +55,8 @@
                 </a>
             </div>
         </div>
-    </div>
     <div class="" id="content">
         @yield('content')
-
         <div {{ Session::has('notification') ? 'data-notification' : '' }}
             data-notification-type='{{ Session::get('alert_type', 'info') }}'
             data-notification-message='{{ json_encode(Session::get('message')) }}'>
