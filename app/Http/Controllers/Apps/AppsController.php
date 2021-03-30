@@ -10,12 +10,13 @@ class AppsController extends Controller
 {
     public function index()
     {
-        $apps = AppModel::select('id','name')->get();
+        $apps = AppModel::select('id','name','description','db_name','url_address','url_icon','created_at')->get();
+
         return View('apps.index',['apps'=>$apps]);
     }
     public function getApps()
     {
-        $apps = AppModel::select('id','name','description','db_name','url_address','url_icon','created_at')->get();
+        $apps = AppModel::select('id','name')->get();
         return json_encode($apps);
     }
     public function createApp()
@@ -30,13 +31,13 @@ class AppsController extends Controller
         ]);
 
         $appEntity = new AppModel();
-        $appEntity->name=$request['name'];
-        $appEntity->description=$request['description'];
-        $appEntity->db_name=$request['db_name'];
-        $appEntity->url_address=$request['url_address'];
-        $appEntity->url_icon=$request['url_icon'];
+        $appEntity->name = $request['name'];
+        $appEntity->description = $request['description'];
+        $appEntity->db_name = $request['db_name'];
+        $appEntity->url_address = $request['url_address'];
+        $appEntity->url_icon = $request['url_icon'];
         $appEntity->save();
-        return View('apps.index');
+        return redirect('apps');
     }
     public function editApp($id)
     {

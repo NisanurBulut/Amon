@@ -19,9 +19,11 @@
   </div>
 </div>
 <div class="ui bottom attached segment">
-  <div class="ui grid">
+  <div class="ui three column grid">
     @foreach ($apps as $app)
-    <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
+  <div class="column">
+    <x-apps.app-item :app="$app"/>
+  </div>
     @endforeach
   </div>
 </div>
