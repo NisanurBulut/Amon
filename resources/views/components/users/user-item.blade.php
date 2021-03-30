@@ -2,7 +2,7 @@
 <div class="ui card">
     <div class="content">
         @if ($user->is_admin)
-            <i class="right floated star icon"></i>
+            <i class="right floated star yellow icon"></i>
         @endif
         <div class="header">{{ $user->name }}</div>
         <div class="description">
