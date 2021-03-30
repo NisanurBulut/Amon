@@ -50,4 +50,4 @@ Route::get('/demands',[DemandsController::class,'index'])->name('demands.index')
 
 Route::get('/apps',[AppsController::class,'index'])->name('apps.index');
 Route::get('/apps/createApp',[AppsController::class, 'createApp'])->name('apps.createApp');
-Route::post('/settings/storeApp',[AppsController::class, 'storeApp'])->name('apss.storeApp');
+Route::post('/apps/storeApp',[AppsController::class, 'storeApp'])->name('apps.storeApp');
