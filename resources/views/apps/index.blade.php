@@ -20,13 +20,9 @@
 </div>
 <div class="ui bottom attached segment">
   <div class="ui grid">
+    @foreach ($apps as $app)
     <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
-    <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
-    <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
-    <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
-    <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
-    <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
-    <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
+    @endforeach
   </div>
 </div>
 

@@ -10,7 +10,13 @@ class AppsController extends Controller
 {
     public function index()
     {
-        return View('apps.index');
+        $apps = AppModel::select('id','name')->get();
+        return View('apps.index',['apps'=>$apps]);
+    }
+    public function getApps()
+    {
+        $apps = AppModel::select('id','name','description','db_name','url_address','url_icon','created_at')->get();
+        return json_encode($apps);
     }
     public function createApp()
     {
