@@ -1,6 +1,6 @@
 
 
-<form class="ui form" method="POST" action="{{ route('settings.storeColor') }}">
+<form autoComplete="off" class="ui form" method="POST" action="{{ route('settings.storeColor') }}">
     @csrf
     <div class="field">
       <label>Renk Kodu</label>

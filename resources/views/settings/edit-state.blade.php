@@ -1,6 +1,6 @@
 
 
-<form class="ui form" method="POST" action="{{ route('settings.updateState', $state->id) }}">
+<form class="ui form" autoComplete="off" method="POST" action="{{ route('settings.updateState', $state->id) }}">
   {{csrf_field()}}
   <div class="field">
     <label>Tanım</label>

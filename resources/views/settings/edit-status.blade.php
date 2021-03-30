@@ -1,6 +1,4 @@
-
-
-<form class="ui form" method="POST" action="{{ route('settings.updateStatus', $status->id) }}">
+<form class="ui form" autoComplete="off" method="POST" action="{{ route('settings.updateStatus', $status->id) }}">
 {{ csrf_field() }}
     <div class="field">
       <label>Tanım</label>

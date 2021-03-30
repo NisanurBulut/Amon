@@ -1,4 +1,4 @@
-<form class="ui form" method="POST" action="{{ route('settings.updateColor', $color->id) }}">
+<form class="ui form" autoComplete="off" method="POST" action="{{ route('settings.updateColor', $color->id) }}">
   {{ csrf_field() }}
     <div class="field">
       <label>Renk Kodu</label>

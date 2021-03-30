@@ -1,6 +1,6 @@
 
 
-<form class="ui form" method="POST" action="{{ route('settings.storeStatus') }}">
+<form class="ui form" autoComplete="off" method="POST" action="{{ route('settings.storeStatus') }}">
 @csrf()
     <div class="field">
       <label>Tanım</label>
