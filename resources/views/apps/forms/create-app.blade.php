@@ -24,6 +24,8 @@
         </div>
       </div>
     </div>
+   <div style="display: flex;justify-content:flex-end;">
     <div class="ui button green right aligned" tabindex="0">Kaydet</div>
+   </div>
   </form>
 </div>

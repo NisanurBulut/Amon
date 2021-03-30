@@ -1,7 +1,7 @@
 
 <x-shared.modal />
 
-<div class="ui top attached segment" id="content">
+<div class="ui top attached" id="content">
     <a id="btnStatusAdd" class="ui huge top attached label btnModalOpen" href="{{ route('settings.createStatus') }}">
         <i style="float: right;" data-content="Copy code" class="plus icon"></i>
     </a>
