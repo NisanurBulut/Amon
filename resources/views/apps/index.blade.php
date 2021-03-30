@@ -6,10 +6,11 @@
   <div class="left menu">
     <div class="ui left aligned category search item">
       <div class="ui transparent icon input">
-        <input class="prompt" type="text" placeholder="Uygulama ara...">
+        <input id="inputSearch" class="prompt" type="text" placeholder="Uygulama ara...">
         <i class="search link icon"></i>
       </div>
-      <div class="results"></div>
+      <div class="results">
+      </div>
     </div>
   </div>
   <div class="right menu">
@@ -18,7 +19,7 @@
     </a>
   </div>
 </div>
-<div class="ui bottom attached segment">
+<div class="ui bottom attached segment" id="divSearchContent">
   <div class="ui three column grid">
     @foreach ($apps as $app)
   <div class="column">

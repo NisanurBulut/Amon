@@ -1,5 +1,15 @@
 $(document).ready(function () {
 
+    $(document).ready(function(){
+        $("#inputSearch").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#divSearchContent .card").filter(function() {
+              console.log(value,$(this).text().toLowerCase());
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+        });
+      });
+
     $(document).on('click','#confirmCloseBtn',function(){
         $('#confirmModal').modal('hide');
     });

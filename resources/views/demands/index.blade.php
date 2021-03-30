@@ -5,7 +5,7 @@
         <div class="left menu">
           <div class="ui left aligned category search item">
             <div class="ui transparent icon input">
-              <input class="prompt" type="text" placeholder="Talep ara...">
+              <input id="inputSearch" class="prompt" type="text" placeholder="Talep ara...">
               <i class="search link icon"></i>
             </div>
             <div class="results"></div>
@@ -17,7 +17,7 @@
           </a>
         </div>
       </div>
-      <div class="ui bottom attached segment">
+      <div class="ui bottom attached segment" id="divSearchContent">
         <div class="ui cards">
             @for ($i = 0; $i < 20; $i++)
             <x-demand-item />
