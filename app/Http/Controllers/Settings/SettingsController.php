@@ -74,6 +74,22 @@ class SettingsController extends Controller
         $status->save();
         return back();
     }
+    public function updateState(Request $request,$id)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:50',
+        ]);
+
+        $state = StateModel::find($id);
+        $state->name=$request['name'];
+        $state->save();
+        return back();
+    }
+    public function editState($id)
+    {
+        $state = StateModel::find($id);
+        return View('settings.edit-state', ['id'=>$id, 'state'=>$state]);
+    }
     public function storeState(Request $request)
     {
         $this->validate($request, [
@@ -92,6 +108,7 @@ class SettingsController extends Controller
         $state->delete();
         return back()->with('message','Aşama silme işlemi başarıyla gerçekleşti');
     }
+
     public function destroyColor($id)
     {
         $state = DB::table('tcolor')->where('id',$id);

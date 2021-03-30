@@ -43,9 +43,9 @@
     <div class="ui padded" id="">
         @yield('content')
 
-        @if (session('message'))
-            <x-shared.messagebox />
-        @endif
+        <div {{ Session::has('notification') ? 'data-notification' : '' }} data-notification-type='{{ Session::get('alert_type', 'info') }}' data-notification-message='{{ json_encode(Session::get('message')) }}'>
+
+        </div>
     </div>
     </div>
 </body>

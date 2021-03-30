@@ -28,6 +28,9 @@ Route::get('/settings/createState',[SettingsController::class, 'createState'])->
 Route::get('/settings/getStates',[SettingsController::class, 'getStates'])->name('settings.getStates');
 Route::post('/settings/storeState',[SettingsController::class, 'storeState'])->name('settings.storeState');
 Route::delete('/settings/destroyState/{id}',[SettingsController::class, 'destroyState'])->name('settings.destroyState');
+Route::get('/settings/editState/{id}',[SettingsController::class, 'editState'])->name('settings.editState');
+Route::post('/settings/updateState/{id}',[SettingsController::class, 'updateState'])->name('settings.updateState');
+
 
 
 Route::get('/settings/getColors',[SettingsController::class, 'getColors'])->name('settings.getColors');

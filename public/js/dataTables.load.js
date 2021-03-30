@@ -66,9 +66,10 @@ function loadStatesToTable() {
                 data: "id",
                 render: function (data, type) {
                     return (
-                        `<a><i class="blue edit icon"></i></a>` +
-                        `<a class="btnConfirmModalOpen" id='${data}' href="/settings/destroyState/${data}">` +
-                        `<i class="red trash icon"></i></a>`
+                         `<a class="btnModalOpen" id='${data}' href="/settings/editState/${data}">`
+                        +`<i class="blue edit icon"></i></a>`
+                        + `<a class="btnConfirmModalOpen" id='${data}' href="/settings/destroyState/${data}">`
+                        + `<i class="red trash icon"></i></a>`
                     );
                 },
             },
