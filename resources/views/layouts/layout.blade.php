@@ -57,6 +57,7 @@
         </div>
     <div class="" id="content">
         @yield('content')
+
         <div {{ Session::has('notification') ? 'data-notification' : '' }}
             data-notification-type='{{ Session::get('alert_type', 'info') }}'
             data-notification-message='{{ json_encode(Session::get('message')) }}'>

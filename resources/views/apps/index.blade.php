@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 @section('content')
 <x-shared.modal />
+@yield('modal')
 <div class="ui top attached menu">
   <div class="left menu">
     <div class="ui left aligned category search item">
