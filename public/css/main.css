@@ -19,11 +19,7 @@
 
       #content {
         padding-top: 56px;
-        padding-left: 20px;
-        padding-right: 20px;
       }
-
-
       .ui.borderless.menu {
         box-shadow: none;
         flex-wrap: wrap;
