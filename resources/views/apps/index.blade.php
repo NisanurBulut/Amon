@@ -4,7 +4,7 @@
   <div class="left menu">
     <div class="ui left aligned category search item">
       <div class="ui transparent icon input">
-        <input class="prompt" type="text" placeholder="Search animals...">
+        <input class="prompt" type="text" placeholder="Uygulama ara...">
         <i class="search link icon"></i>
       </div>
       <div class="results"></div>
