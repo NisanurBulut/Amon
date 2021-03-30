@@ -8,5 +8,7 @@
       <label>Açıklama</label>
       <input type="text" name="description" placeholder="Açıklama" required value={{ $color->description }} />
     </div>
-    <button class="ui button" type="submit">Kaydet</button>
+    <div class="formBtnRightAlligned">
+      <button class="ui button purple" type="submit">Kaydet</button>
+    </div>
   </form>

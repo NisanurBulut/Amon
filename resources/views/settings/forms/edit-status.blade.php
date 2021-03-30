@@ -7,5 +7,7 @@
     <div class="field">
       <x-shared.combobox :items="$items"  :itemSelected="$itemSelected"/>
     </div>
-    <button class="ui button right floated green" type="submit">Kaydet</button>
+    <div class="formBtnRightAlligned">
+      <button class="ui button purple" type="submit">Kaydet</button>
+    </div>
   </form>

@@ -22,3 +22,8 @@
         padding-left: 2rem;
         padding-right: 2rem;
       }
+
+      .formBtnRightAlligned{
+        display: flex;
+        justify-content: flex-end;
+      }
