@@ -1,6 +1,4 @@
 $(document).ready(function () {
-
-
     function loadModal(href, modalId) {
         event.preventDefault();
         let itemModal = document.getElementById(`${modalId}`);
@@ -15,7 +13,6 @@ $(document).ready(function () {
                         : function () {};
 
                     $.get(href, function (responseContent) {
-                        console.log(responseContent);
                         $(itemModal).find(".content").html(responseContent);
                     });
                 },
@@ -25,6 +22,7 @@ $(document).ready(function () {
 
     $(document).on("click", ".btnModalOpen", function (event) {
         event.preventDefault();
+        $('#sharedModal').find(".content").html(''); // clear modal content
         let href = $(this).attr("href");
         loadModal(href, "sharedModal");
     });
