@@ -33,17 +33,36 @@
                 </div>
                 {{-- <a class="item" href="{{ route('auth.login') }}">Login</a>
           <a class="item" href="{{ route('auth.register') }}">Register</a> --}}
-                <a class="item" href="{{ route('settings.index') }}">Ayarlar</a>
-                <a class="item" href="{{ route('demands.index') }}">Talepler</a>
-                <a class="item">Dashboard</a>
-                <a class="item">Profile</a> <a class="item">Help</a>
+                <a class="item" href="{{ route('settings.index') }}">
+                    <i class="settings icon large tooltip" data-content="Ayarlar"></i>
+                </a>
+                <a class="item" href="{{ route('demands.index') }}">
+                    <i class="bolt icon large tooltip" data-content="Dashboard"></i>
+                </a>
+                <a class="item">
+                    <i class="tasks icon large tooltip" data-content="Talepler"></i>
+                </a>
+                <a class="item">
+                    <i class="users icon large tooltip" data-content="Kullanıcılar"></i>
+                </a>
+                <a class="item">
+                    <i class="rocket icon large tooltip" data-content="Uygulamalar"></i>
+                </a>
+                <a class="item">
+                    <i class="user circle icon large tooltip" data-content="Profil"></i>
+                </a>
+                <a class="item">
+                    <i class="question circle icon large tooltip" data-content="Destek"></i>
+                </a>
             </div>
         </div>
     </div>
     <div class="ui padded" id="">
         @yield('content')
 
-        <div {{ Session::has('notification') ? 'data-notification' : '' }} data-notification-type='{{ Session::get('alert_type', 'info') }}' data-notification-message='{{ json_encode(Session::get('message')) }}'>
+        <div {{ Session::has('notification') ? 'data-notification' : '' }}
+            data-notification-type='{{ Session::get('alert_type', 'info') }}'
+            data-notification-message='{{ json_encode(Session::get('message')) }}'>
 
         </div>
     </div>
