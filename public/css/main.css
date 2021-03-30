@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-      html,body {
+      /* html,body {
         margin: 0px;
         padding: 0px;
         overflow-x: hidden;
@@ -7,7 +7,7 @@
         background: #FFFFFF;
         font-family: 'Open Sans';
         font-size: 15px;
-      }
+      } */
 
       .authContent {
         display: flex;
@@ -18,12 +18,7 @@
       }
 
       #content {
-        padding-top: 56px;
-      }
-      .ui.borderless.menu {
-        box-shadow: none;
-        flex-wrap: wrap;
-        border: none;
-        padding-left: 0;
-        padding-right: 0;
+        padding-top:60px;
+        padding-left: 2rem;
+        padding-right: 2rem;
       }

@@ -1,15 +1,31 @@
 @extends('layouts.layout')
 @section('content')
-<div class="html ui top attached segment" id="content">
-    <div class="ui grid">
-        <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
-        <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
-        <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
-        <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
-        <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
-        <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
-        <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
-
+<div class="ui top attached menu">
+  <div class="left menu">
+    <div class="ui left aligned category search item">
+      <div class="ui transparent icon input">
+        <input class="prompt" type="text" placeholder="Search animals...">
+        <i class="search link icon"></i>
       </div>
-  <div class="ui top attached label">Example <i data-content="Copy code" class="copy link icon"></i></div></div>
+      <div class="results"></div>
+    </div>
+  </div>
+  <div class="right menu">
+    <a href="{{ route('apps.index') }}" class="ui item">
+      <i class="plus icon large green"></i>
+    </a>
+  </div>
+</div>
+<div class="ui bottom attached segment">
+  <div class="ui grid">
+    <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
+    <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
+    <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
+    <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
+    <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
+    <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
+    <div class="four wide column"><img class="ui image" src="https://picsum.photos/200/300" /></div>
+  </div>
+</div>
+
 @endsection
