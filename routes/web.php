@@ -58,3 +58,5 @@ Route::get('/apps/editApp/{id}',[AppsController::class, 'editApp'])->name('apps.
 Route::post('/apps/updateApp/{id}',[AppsController::class, 'updateApp'])->name('apps.updateApp');
 
 Route::get('/users',[UsersController::class,'index'])->name('users.index');
+Route::get('/users/createUser',[UsersController::class,'createUser'])->name('users.createUser');
+Route::post('/users/storeUser',[UsersController::class, 'storeUser'])->name('users.storeUser');

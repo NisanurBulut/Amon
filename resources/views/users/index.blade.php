@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="right menu">
-            <a class="ui item mini btnModalOpen" href="{{ route('apps.createApp') }}">
+            <a class="ui item mini btnModalOpen" href="{{ route('users.createUser') }}">
                 <i class="plus icon large green center aligned"></i>
             </a>
         </div>

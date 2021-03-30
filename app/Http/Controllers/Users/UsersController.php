@@ -14,4 +14,8 @@ class UsersController extends Controller
 
         return View('users.index',['users'=>$users]);
     }
+    function createUser()
+    {
+        return View('users.forms.create-user');
+    }
 }
