@@ -11,4 +11,20 @@ class AppsController extends Controller
     {
         return View('apps.index');
     }
+    public function createApp()
+    {
+        return View('apps.forms.create-app');
+    }
+    public function storeApp(Request $request)
+    {
+        return View('apps.forms.create-app');
+    }
+    public function editApp($id)
+    {
+        return View('apps.forms.edit-app');
+    }
+    public function updateApp(Request $request,$id)
+    {
+        return View('apps.forms.edit-app');
+    }
 }
