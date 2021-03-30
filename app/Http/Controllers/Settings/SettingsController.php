@@ -38,15 +38,15 @@ class SettingsController extends Controller
     public function createStatus()
     {
         $items = ColorModel::select('id as id','description as name')->get();
-        return View('settings.create-status', ['items'=>$items, 'itemSelected'=>0]);
+        return View('settings.forms.create-status', ['items'=>$items, 'itemSelected'=>0]);
     }
     public function createState()
     {
-        return View('settings.create-state');
+        return View('settings.forms.create-state');
     }
     public function createColor()
     {
-        return View('settings.create-color');
+        return View('settings.forms.create-color');
     }
     public function storeColor(Request $request)
     {
@@ -88,7 +88,7 @@ class SettingsController extends Controller
     public function editState($id)
     {
         $state = StateModel::find($id);
-        return View('settings.edit-state', ['id'=>$id, 'state'=>$state]);
+        return View('settings.forms.edit-state', ['id'=>$id, 'state'=>$state]);
     }
     public function storeState(Request $request)
     {
@@ -111,7 +111,7 @@ class SettingsController extends Controller
     public function editColor($id)
     {
         $color = ColorModel::findOrFail($id);
-        return View('settings.edit-color', ['id'=>$id, 'color'=>$color]);
+        return View('settings.forms.edit-color', ['id'=>$id, 'color'=>$color]);
     }
     public function updateColor(Request $request,$id)
     {
@@ -144,7 +144,7 @@ class SettingsController extends Controller
         $items = ColorModel::select('id as id','description as name')->get();
         $status = StatusModel::findOrFail($id);
 
-        return View('settings.edit-status',
+        return View('settings.forms.edit-status',
         ['id'=>$id,
         'status'=>$status,
         'items'=> $items,
