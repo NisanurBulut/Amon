@@ -1,4 +1,8 @@
 $(document).ready(function () {
+
+    $(document).on('click','#confirmCloseBtn',function(){
+        $('#confirmModal').modal('hide');
+    });
     window.countInput = function (item, labelName) {
         event.preventDefault();
         let labelItem = document.getElementById(labelName);

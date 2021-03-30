@@ -4,7 +4,7 @@
         <form id="confirmDeleteForm" method="POST" action="">
             @csrf()
             @method('DELETE')
-            <button class="ui button">İptal</button>
+            <button class="ui button" onclick="event.preventDefault();" id="confirmCloseBtn">İptal</button>
            <button class="ui primary button" type="submit">Evet</button>
         </form>
     </div>
