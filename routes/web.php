@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Apps\AppsController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Demands\DemandsController;
 use App\Http\Controllers\Settings\SettingsController;
@@ -45,3 +46,6 @@ Route::post('/settings/updateColor/{id}',[SettingsController::class, 'updateColo
 
 Route::get('/demands/create',[DemandsController::class,'create'])->name('demands.create');
 Route::get('/demands',[DemandsController::class,'index'])->name('demands.index');
+
+
+Route::get('/apps',[AppsController::class,'index'])->name('apps.index');

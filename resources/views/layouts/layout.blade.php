@@ -45,7 +45,7 @@
                 <a class="item">
                     <i class="users icon large tooltip" data-content="Kullanıcılar"></i>
                 </a>
-                <a class="item">
+                <a class="item" href="{{ route('apps.index') }}">
                     <i class="rocket icon large tooltip" data-content="Uygulamalar"></i>
                 </a>
                 <a class="item">
