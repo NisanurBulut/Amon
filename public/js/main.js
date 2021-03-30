@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
-    $(document).ready(function(){
+    $('#editAppForm').find('input').trigger('keyup');
+
         $("#inputSearch").on("keyup", function() {
             var value = $(this).val().toLowerCase();
             $("#divSearchContent .card").filter(function() {
@@ -8,11 +9,12 @@ $(document).ready(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
           });
         });
-      });
+
 
     $(document).on('click','#confirmCloseBtn',function(){
         $('#confirmModal').modal('hide');
     });
+
     window.countInput = function (item, labelName) {
         event.preventDefault();
         let labelItem = document.getElementById(labelName);

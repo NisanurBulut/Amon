@@ -4,7 +4,7 @@
 <div class="ui fluid card">
     <div class="content">
        <div class="hoverBtns">
-        <a class="btnModalOpen" href="{{ route('apps.editApp',$app->id) }}">
+        <a class="btnModalOpen" href="/apps/editApp/{{ $app->id }}">
           <i class="right floated edit blue icon large"></i>
           </a>
         <a class="btnConfirmModalOpen" href="{{ route('apps.destroyApp',$app->id) }}">

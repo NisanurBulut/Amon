@@ -48,12 +48,27 @@ class AppsController extends Controller
     }
     public function editApp($id)
     {
-        $appEntity = DB::table('tapp')->where('id',$id)->get();
-        return view('apps.forms.edit-app', ["app"=>$app, "id"=>id]);
+        $app = AppModel::findOrFail($id);
+
+        return View('apps.forms.edit-app', ['id'=>$id, 'app'=>$app]);
     }
 
     public function updateApp(Request $request,$id)
     {
-        return View('apps.forms.edit-app');
+        $this->validate($request, [
+            'name' => 'required|max:100',
+            'description' => 'required|max:500',
+            'url_address'=> 'required|max:100',
+            'url_icon'=>'required|max:200',
+            'db_name'=>'required|max:100'
+        ]);
+        $app = AppModel::findOrFail($id);
+        $app->name = $request['name'];
+        $app->description = $request['description'];
+        $app->db_name = $request['db_name'];
+        $app->url_address = $request['url_address'];
+        $app->url_icon = $request['url_icon'];
+        $app->save();
+        return redirect('apps');
     }
 }

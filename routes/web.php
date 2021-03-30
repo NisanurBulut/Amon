@@ -54,3 +54,4 @@ Route::post('/apps/storeApp',[AppsController::class, 'storeApp'])->name('apps.st
 Route::get('/apps/getApps',[AppsController::class, 'getApps'])->name('apps.getApps');
 Route::delete('/apps/destroyApp/{id}',[AppsController::class, 'destroyApp'])->name('apps.destroyApp');
 Route::get('/apps/editApp/{id}',[AppsController::class, 'editApp'])->name('apps.editApp');
+Route::post('/apps/updateApp/{id}',[AppsController::class, 'updateApp'])->name('apps.updateApp');
