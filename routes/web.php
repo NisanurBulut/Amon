@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Apps\AppsController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Users\UsersController;
 use App\Http\Controllers\Demands\DemandsController;
 use App\Http\Controllers\Settings\SettingsController;
 
@@ -55,3 +56,5 @@ Route::get('/apps/getApps',[AppsController::class, 'getApps'])->name('apps.getAp
 Route::delete('/apps/destroyApp/{id}',[AppsController::class, 'destroyApp'])->name('apps.destroyApp');
 Route::get('/apps/editApp/{id}',[AppsController::class, 'editApp'])->name('apps.editApp');
 Route::post('/apps/updateApp/{id}',[AppsController::class, 'updateApp'])->name('apps.updateApp');
+
+Route::get('/users',[UsersController::class,'index'])->name('users.index');

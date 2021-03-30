@@ -15,46 +15,46 @@
         integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
     <!-- Styles -->
 
-    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/dataTables.semanticui.min.css') }}"> --}}
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/dataTables.semanticui.min.css') }}">
     <link href="{{ asset('fonts/icons.ttf') }}" rel="stylesheet">
 
     <link href="/css/main.css" rel="stylesheet">
 </head>
 
 <body id="">
-        <div class="ui purple inverted borderless top fixed fluid pointing menu">
-            <a class="header item" href="{{ route('welcome') }}">AMON</a>
-            <div class="right menu">
-                <div class="item">
-                    <div class="ui small input"><input placeholder="Search..." /></div>
-                </div>
-                {{-- <a class="item" href="{{ route('auth.login') }}">Login</a>
-          <a class="item" href="{{ route('auth.register') }}">Register</a> --}}
-                <a class="item" href="{{ route('settings.index') }}">
-                    <i class="settings icon large tooltip" data-content="Ayarlar"></i>
-                </a>
-                <a class="item">
-                    <i class="bolt icon large tooltip" data-content="Dashboard"></i>
-                </a>
-                <a class="item" href="{{ route('demands.index') }}">
-                    <i class="tasks icon large tooltip" data-content="Talepler"></i>
-                </a>
-                <a class="item">
-                    <i class="users icon large tooltip" data-content="Kullanıcılar"></i>
-                </a>
-                <a class="item" href="{{ route('apps.index') }}">
-                    <i class="rocket icon large tooltip" data-content="Uygulamalar"></i>
-                </a>
-                <a class="item">
-                    <i class="user circle icon large tooltip" data-content="Profil"></i>
-                </a>
-                <a class="item">
-                    <i class="question circle icon large tooltip" data-content="Destek"></i>
-                </a>
+    <div class="ui purple inverted borderless top fixed fluid pointing menu">
+        <a class="header item" href="{{ route('welcome') }}">AMON</a>
+        <div class="right menu">
+            <div class="item">
+                <div class="ui small input"><input placeholder="Search..." /></div>
             </div>
+            {{-- <a class="item" href="{{ route('auth.login') }}">Login</a>
+          <a class="item" href="{{ route('auth.register') }}">Register</a> --}}
+            <a class="item" href="{{ route('settings.index') }}">
+                <i class="settings icon large tooltip" data-content="Ayarlar"></i>
+            </a>
+            <a class="item">
+                <i class="bolt icon large tooltip" data-content="Dashboard"></i>
+            </a>
+            <a class="item" href="{{ route('demands.index') }}">
+                <i class="tasks icon large tooltip" data-content="Talepler"></i>
+            </a>
+            <a class="item" href="{{ route('users.index') }}">
+                <i class="users icon large tooltip" data-content="Kullanıcılar"></i>
+            </a>
+            <a class="item" href="{{ route('apps.index') }}">
+                <i class="rocket icon large tooltip" data-content="Uygulamalar"></i>
+            </a>
+            <a class="item">
+                <i class="user circle icon large tooltip" data-content="Profil"></i>
+            </a>
+            <a class="item">
+                <i class="question circle icon large tooltip" data-content="Destek"></i>
+            </a>
         </div>
+    </div>
     <div class="" id="content">
         @yield('content')
 
