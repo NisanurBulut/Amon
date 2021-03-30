@@ -36,10 +36,10 @@
                 <a class="item" href="{{ route('settings.index') }}">
                     <i class="settings icon large tooltip" data-content="Ayarlar"></i>
                 </a>
-                <a class="item" href="{{ route('demands.index') }}">
+                <a class="item">
                     <i class="bolt icon large tooltip" data-content="Dashboard"></i>
                 </a>
-                <a class="item">
+                <a class="item" href="{{ route('demands.index') }}">
                     <i class="tasks icon large tooltip" data-content="Talepler"></i>
                 </a>
                 <a class="item">
