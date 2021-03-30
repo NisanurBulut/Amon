@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="ui bottom attached segment" id="divSearchContent">
-        <div class="ui three column grid">
+        <div class="ui four column grid">
             @foreach ($users as $user)
                 <div class="column">
                     <x-users.user-item :user="$user" />

@@ -20,7 +20,7 @@
   </div>
 </div>
 <div class="ui bottom attached segment" id="divSearchContent">
-  <div class="ui three column grid">
+  <div class="ui link cards">
     @foreach ($apps as $app)
   <div class="column">
     <x-apps.app-item :app="$app"/>
