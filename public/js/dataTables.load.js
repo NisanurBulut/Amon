@@ -13,9 +13,10 @@ function loadColorsToTable() {
                 data: "id",
                 render: function (data, type) {
                     return (
-                        `<a><i class="blue edit icon"></i></a>` +
-                        `<a class="btnConfirmModalOpen" id='${data}' href="/settings/destroyColor/${data}">` +
-                        `<i class="red trash icon"></i></a>`
+                        `<a class="btnModalOpen" id='${data}' href="/settings/editColor/${data}">`
+                        +`<i class="blue edit icon"></i></a>`
+                        +`<a class="btnConfirmModalOpen" id='${data}' href="/settings/destroyColor/${data}">`
+                        +`<i class="red trash icon"></i></a>`
                     );
                 },
             },
@@ -40,9 +41,10 @@ function loadSituationsToTable() {
                 data: "id",
                 render: function (data, type) {
                     return (
-                        `<a><i class="blue edit icon"></i></a>` +
-                        `<a class="btnConfirmModalOpen" id='${data}' href="/settings/destroyStatus/${data}">` +
-                        `<i class="red trash icon"></i></a>`
+                        `<a class="btnModalOpen" id='${data}' href="/settings/editStatus/${data}">`
+                        +`<i class="blue edit icon"></i></a>`
+                        +`<a class="btnConfirmModalOpen" id='${data}' href="/settings/destroyStatus/${data}">`
+                        +`<i class="red trash icon"></i></a>`
                     );
                 },
             },

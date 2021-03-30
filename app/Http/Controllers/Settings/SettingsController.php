@@ -37,8 +37,8 @@ class SettingsController extends Controller
     }
     public function createStatus()
     {
-        $colorSelects = ColorModel::select('id as id','description as name')->get();
-        return View('settings.create-status', ['colorSelects'=>$colorSelects]);
+        $items = ColorModel::select('id as id','description as name')->get();
+        return View('settings.create-status', ['items'=>$items, 'itemSelected'=>0]);
     }
     public function createState()
     {
@@ -108,7 +108,25 @@ class SettingsController extends Controller
         $state->delete();
         return back()->with('message','Aşama silme işlemi başarıyla gerçekleşti');
     }
+    public function editColor($id)
+    {
+        $color = ColorModel::findOrFail($id);
+        return View('settings.edit-color', ['id'=>$id, 'color'=>$color]);
+    }
+    public function updateColor(Request $request,$id)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:20',
+            'description' => 'required',
+            ]);
 
+        $color = ColorModel::findOrFail($id);
+        $color->name=$request['name'];
+        $color->description=$request['description'];
+
+        $color->save();
+        return back();
+    }
     public function destroyColor($id)
     {
         $state = DB::table('tcolor')->where('id',$id);
@@ -117,8 +135,32 @@ class SettingsController extends Controller
     }
     public function destroyStatus($id)
     {
-        $state = DB::table('tstatus')->where('id',$id);
-        $state->delete();
+        $status = DB::table('tstatus')->where('id',$id);
+        $status->delete();
+        return back();
+    }
+    public function editStatus($id)
+    {
+        $items = ColorModel::select('id as id','description as name')->get();
+        $status = StatusModel::findOrFail($id);
+
+        return View('settings.edit-status',
+        ['id'=>$id,
+        'status'=>$status,
+        'items'=> $items,
+        'itemSelected'=>$status->color_id]);
+    }
+    public function updateStatus(Request $request, $id)
+    {
+        $this->validate($request, [
+            'name' => 'required|max:20',
+            'color_id' => 'required',
+        ]);
+        $status = StatusModel::findOrFail($id);
+        $status->name=$request['name'];
+        $status->color_id=$request['color_id'];
+
+        $status->save();
         return back();
     }
 }

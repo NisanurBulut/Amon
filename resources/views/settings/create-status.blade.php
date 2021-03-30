@@ -7,7 +7,7 @@
       <input type="text" name="name" placeholder="Tanım" required>
     </div>
     <div class="field">
-      <x-shared.combobox :colorSelects="$colorSelects"/>
+      <x-shared.combobox :items="$items" :itemSelected="$itemSelected"/>
     </div>
     <button class="ui button right floated green" type="submit">Kaydet</button>
   </form>
