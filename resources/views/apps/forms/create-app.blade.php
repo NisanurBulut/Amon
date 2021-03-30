@@ -1,4 +1,5 @@
-<form class="ui form" autocomplete="off">
+<form class="ui form" autocomplete="off" method="POST" action="{{ route('apps.storeApp') }}">
+  @csrf()
     <h4 class="ui dividing header">Uygulama bilgileri</h4>
     <div class="field">
         <label>Uygulama Adı</label>

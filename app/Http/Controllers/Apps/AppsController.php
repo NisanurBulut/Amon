@@ -25,12 +25,12 @@ class AppsController extends Controller
 
         $appEntity = new AppModel();
         $appEntity->name=$request['name'];
-        $appEntity->name=$request['description'];
-        $appEntity->name=$request['db_name'];
-        $appEntity->name=$request['url_address'];
-        $appEntity->name=$request['url_icon'];
+        $appEntity->description=$request['description'];
+        $appEntity->db_name=$request['db_name'];
+        $appEntity->url_address=$request['url_address'];
+        $appEntity->url_icon=$request['url_icon'];
         $appEntity->save();
-        return View('apps.forms.create-app');
+        return View('apps.index');
     }
     public function editApp($id)
     {
