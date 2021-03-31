@@ -3,17 +3,11 @@
     <div class="two fields">
         <div class="field">
             <label>Durum</label>
-            <select class="ui fluid dropdown">
-                <option value="">Acil</option>
-                <option value="WY">Çok Acil</option>
-            </select>
+            <x-shared.combobox :items="$situations"  :itemSelected="0" placeHolder="Durum"/>
         </div>
         <div class="field">
             <label>Uygulama</label>
-            <select class="ui fluid dropdown">
-                <option value="">AMON</option>
-                <option value="">IKARUS</option>
-            </select>
+            <x-shared.combobox :items="$apps"  :itemSelected="0" placeHolder="Uygulama"/>
         </div>
     </div>
     <div class="field">
