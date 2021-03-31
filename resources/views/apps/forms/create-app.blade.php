@@ -15,7 +15,7 @@
         <label>Uygulama tanımı/açıklama</label>
         <div class="ui fluid field">
             <div class="ui right labeled input">
-            <input style="height: 50px;" maxlength="500" rows="4" type="text" name="description"
+            <input type="text" name="description" class="inputTextAreaHeight"
             onkeyup="event.preventDefault();countInput(this,'lblAppDescription')"
             placeholder="Uygulama Tanımı/Açıklama" required />
             <div class="ui basic label label text-center" id="lblAppDescription">0</div>

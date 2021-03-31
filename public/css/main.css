@@ -32,3 +32,7 @@
         display: flex !important;
         justify-content: center !important;
       }
+      .inputTextAreaHeight
+      {
+        height: 50px !important;
+      }
