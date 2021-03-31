@@ -7,7 +7,7 @@
       <p class="ui label tiny {{ $demand->color }}">{{ $demand->status }} / {{ $demand->state }}</p>
     </div>
     <div class="right floated">
-      @if ($demand->OwnedOrIsAdminBy(auth()->user()))
+      @if ($demand->OwnedOrIsAdminBy(auth()->user())==true)
       <a class="btnModalOpen" href="/demands/editDemand/{{ $demand->id }}">
         <i class="ui icon edit blue"></i>
       </a>

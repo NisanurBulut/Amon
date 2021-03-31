@@ -19,6 +19,11 @@ class DemandModel extends Model
 
     public function OwnedOrIsAdminBy(User $user)
     {
-        return $this->owner_id===$user->id || $user->is_admin===true;
+        if($user->is_admin)
+        return true;
+        else if($this->owner_id===$user->id)
+        return true;
+        else
+        return false;
     }
 }
