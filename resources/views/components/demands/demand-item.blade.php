@@ -1,14 +1,17 @@
-<div class="ui red card">
+@props(['demand' => $demand])
+<x-shared.modal />
+<x-shared.confirm />
+<div class="ui {{ $demand->color }} card">
     <div class="content">
-      <img class="right floated mini ui image" src="https://t3.ftcdn.net/jpg/02/59/39/46/240_F_259394679_GGA8JJAEkukYJL9XXFH2JoC3nMguBPNH.jpg">
+      <img class="right floated mini ui image" src="{{ $demand->ownerImage }}">
       <div class="header">
-        Elliot Fu
+        {{ $demand->title }} hk.
       </div>
       <div class="meta">
-        Friends of Veronika
+        {{ $demand->ownerName }}
       </div>
-      <div class="description">
-        Elliot requested permission to view your contact details
+      <div class="description" style="overflow: auto;max-height: 100px;min-height:100px;">
+        {{ $demand->description }}
       </div>
     </div>
     <div class="extra content">

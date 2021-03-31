@@ -20,9 +20,10 @@
       </div>
       <div class="ui bottom attached segment" id="divSearchContent">
         <div class="ui grid">
+
           @foreach ($demands as $demand)
           <div class="four wide column centerGridItems">
-            <x-demands.demand-item />
+            <x-demands.demand-item :demand="$demand"/>
           </div>
           @endforeach
       </div>
