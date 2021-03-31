@@ -41,10 +41,14 @@ class DemandsController extends Controller
             "apps"=>$apps
         ]);
     }
-
+    public function destroyDemand($id)
+    {
+        $demandEntity = DB::table('tdemand')->where('id',$id);
+        $demandEntity->delete();
+        return redirect('demands')->with('message','Silme işlemi başarıyla gerçekleşti');
+    }
     public function storeDemand(Request $request)
     {
-
         $validated = $request->validate(
             [
                 'title'=>'required',

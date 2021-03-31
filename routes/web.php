@@ -49,9 +49,9 @@ Route::post('/settings/updateColor/{id}',[SettingsController::class, 'updateColo
 Route::get('/demands',[DemandsController::class,'index'])->name('demands.index');
 Route::get('/demands/createDemand',[DemandsController::class,'createDemand'])->name('demands.createDemand');
 Route::post('/demands/storeDemand',[DemandsController::class, 'storeDemand'])->name('demands.storeDemand');
-Route::get('/demands/editDemand/{id}',[DemandsController::class, 'editDemand'])->name('users.editDemand');
-Route::post('/demands/updateDemand/{id}',[DemandsController::class, 'updateDemand'])->name('users.updateDemand');
-Route::delete('/demands/destroyDemand/{id}',[DemandsController::class, 'destroyDemand'])->name('users.destroyDemand');
+Route::get('/demands/editDemand/{id}',[DemandsController::class, 'editDemand'])->name('demands.editDemand');
+Route::post('/demands/updateDemand/{id}',[DemandsController::class, 'updateDemand'])->name('demands.updateDemand');
+Route::delete('/demands/destroyDemand/{id}',[DemandsController::class, 'destroyDemand'])->name('demands.destroyDemand');
 
 
 Route::get('/apps',[AppsController::class,'index'])->name('apps.index');
