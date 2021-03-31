@@ -28,7 +28,7 @@ class DemandsController extends Controller
             'tuser.image_url as underImage',
             'tcolor.name as color',
             'tstatus.name as status',
-            'tstate.name as state')->get();
+            'tstate.name as state')->orderBy('tdemand.created_at', 'DESC')->get();
 
         return View('demands.index', ["demands"=>$demands]);
     }

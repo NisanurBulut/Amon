@@ -10,7 +10,7 @@ class AppsController extends Controller
 {
     public function index()
     {
-        $apps = AppModel::select('id','name','description','db_name','url_address','url_icon','created_at')->get();
+        $apps = AppModel::select('id','name','description','db_name','url_address','url_icon','created_at')->orderBy('created_at', 'DESC')->get();
 
         return View('apps.index',['apps'=>$apps]);
     }

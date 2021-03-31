@@ -10,7 +10,7 @@ class UsersController extends Controller
 {
     public function index()
     {
-        $users = User::select('id','is_admin','name','username','created_at','image_url','email')->get();
+        $users = User::select('id','is_admin','name','username','created_at','image_url','email')->orderBy('created_at','DESC')->get();
 
         return View('users.index',['users'=>$users]);
     }
