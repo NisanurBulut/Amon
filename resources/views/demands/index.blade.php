@@ -13,14 +13,13 @@
           </div>
         </div>
         <div class="right menu">
-          <a href={{ route('demands.createDemand') }} class="ui item">
+          <a class="ui item btnModalOpen" href={{ route('demands.createDemand') }}>
             <i class="plus icon large green"></i>
           </a>
         </div>
       </div>
       <div class="ui bottom attached segment" id="divSearchContent">
         <div class="ui grid">
-
           @foreach ($demands as $demand)
           <div class="four wide column centerGridItems">
             <x-demands.demand-item :demand="$demand"/>
