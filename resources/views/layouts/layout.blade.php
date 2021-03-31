@@ -38,9 +38,6 @@
                     <a class="item" href="{{ route('settings.index') }}">
                         <i class="settings icon large tooltip" data-content="Ayarlar"></i>
                     </a>
-                    <a class="item" href="{{ route('demands.index') }}">
-                        <i class="tasks icon large tooltip" data-content="Talepler"></i>
-                    </a>
                     <a class="item" href="{{ route('users.index') }}">
                         <i class="users icon large tooltip" data-content="Kullanıcılar"></i>
                     </a>
@@ -48,6 +45,9 @@
                         <i class="rocket icon large tooltip" data-content="Uygulamalar"></i>
                     </a>
                 @endif
+                <a class="item" href="{{ route('demands.index') }}">
+                    <i class="tasks icon large tooltip" data-content="Talepler"></i>
+                </a>
                 <div role="listbox" aria-expanded="false" class="ui item inline dropdown" tabindex="0">
                     <div aria-atomic="true" aria-live="polite" role="alert" class="divider text">
                         <img src="{{ auth()->user()->image_url }}" class="ui avatar image" />
@@ -55,21 +55,19 @@
                     </div>
                     <i aria-hidden="true" class="dropdown icon"></i>
                     <div class="menu transition">
-                        <div style="cursor:pointer;" role="option" aria-checked="true" aria-selected="true"
-                            class="item">
+                        <div style="cursor:pointer;" role="option" aria-checked="true" aria-selected="true" class="item">
                             <a class="ui" href="{{ route('auth.storeLogout') }}">
                                 <i class="question circle icon large tooltip purple" data-content="Destek"></i>
                                 <label class="text ui purple label basic">Destek</label>
                             </a>
                         </div>
-                        <div style="cursor:pointer;" role="option" aria-checked="true" aria-selected="true"
-                        class="item">
-                        <a class="ui" href="{{ route('auth.storeLogout') }}">
-                            <i type="submit" class="sign out purple alternate icon large tooltip"
-                                data-content="Oturumu kapat"></i>
-                            <label class="text ui purple label basic">Oturumu kapat</label>
-                        </a>
-                    </div>
+                        <div style="cursor:pointer;" role="option" aria-checked="true" aria-selected="true" class="item">
+                            <a class="ui" href="{{ route('auth.storeLogout') }}">
+                                <i type="submit" class="sign out purple alternate icon large tooltip"
+                                    data-content="Oturumu kapat"></i>
+                                <label class="text ui purple label basic">Oturumu kapat</label>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
