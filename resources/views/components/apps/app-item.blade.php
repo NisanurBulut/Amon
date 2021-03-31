@@ -5,10 +5,10 @@
     <div class="content">
         <div class="hoverBtns">
             <a class="btnModalOpen" href="/apps/editApp/{{ $app->id }}">
-                <i class="right floated edit blue icon large"></i>
+                <i class="right floated edit blue icon"></i>
             </a>
             <a class="btnConfirmModalOpen" href="{{ route('apps.destroyApp', $app->id) }}">
-                <i class="right floated trash red icon large"></i>
+                <i class="right floated trash red icon"></i>
             </a>
         </div>
         <div class="header">
