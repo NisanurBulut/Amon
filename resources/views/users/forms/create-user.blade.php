@@ -52,8 +52,8 @@
     <div class="ui segment">
         <div class="field">
           <div class="ui toggle checkbox">
-            <input type="checkbox" name="is_admin" tabindex="0" class="hidden" readonly="" required>
-            <label>Kullanıcı yönetici midir ?</label>
+            <input type="checkbox" name="is_admin" tabindex="0" readonly="" required>
+            <label  class="ui yellow" >Kullanıcı yönetici midir ?</label>
           </div>
         </div>
       </div>
