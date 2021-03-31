@@ -28,8 +28,7 @@ class DemandsController extends Controller
             'tuser.image_url as underImage',
             'tcolor.name as color',
             'tstatus.name as status',
-            'tstate.name as state')
-     ->get();
+            'tstate.name as state')->get();
 
         return View('demands.index', ["demands"=>$demands]);
     }
@@ -41,5 +40,28 @@ class DemandsController extends Controller
             "situations"=>$situations,
             "apps"=>$apps
         ]);
+    }
+
+    public function storeDemand(Request $request)
+    {
+
+        $validated = $request->validate(
+            [
+                'title'=>'required',
+                'description'=>'required',
+                'status_id'=>'required',
+                'app_id'=>'required'
+            ]);
+
+        $demand = new DemandModel();
+        $demand->title=$request['title'];
+        $demand->description=$request['description'];
+        $demand->owner_id=1;
+        $demand->app_id=$request['app_id'];
+        $demand->status_id=$request['status_id'];
+        $demand->state_id=4;
+        $demand->undertaking_id=0;
+        $demand->save();
+        return redirect('demands');
     }
 }

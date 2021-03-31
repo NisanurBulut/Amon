@@ -1,13 +1,13 @@
 <form class="ui form" autoComplete="off" method="POST" action="{{ route('settings.storeStatus') }}">
-@csrf()
+    @csrf()
     <div class="field">
-      <label>Tanım</label>
-      <input type="text" name="name" placeholder="Tanım" required>
+        <label>Tanım</label>
+        <input type="text" name="name" placeholder="Tanım" required>
     </div>
     <div class="field">
-      <x-shared.combobox :items="$items" :itemSelected="$itemSelected" placeHolder="Renk"/>
+        <x-shared.combobox :items="$items" :itemSelected="$itemSelected" placeHolder="Renk" attrId="color_id" />
     </div>
     <div class="formBtnRightAlligned">
-      <button class="ui button purple" type="submit">Kaydet</button>
+        <button class="ui button purple" type="submit">Kaydet</button>
     </div>
-  </form>
+</form>
