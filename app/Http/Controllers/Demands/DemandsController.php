@@ -11,6 +11,14 @@ use App\Http\Controllers\Controller;
 
 class DemandsController extends Controller
 {
+    private function getApps()
+    {
+        return AppModel::select('id','name')->get();
+    }
+    private function getSituations()
+    {
+        return StatusModel::select('id','name')->get();
+    }
     public function index()
     {
         $demands = DB::table('tdemand')
@@ -34,12 +42,44 @@ class DemandsController extends Controller
     }
     public function createDemand()
     {
-        $apps = AppModel::select('id','name')->get();
-        $situations = StatusModel::select('id','name')->get();
+        $apps=$this->getApps();
+        $situations =$this->getSituations();
         return View('demands.forms.create-demand', [
             "situations"=>$situations,
             "apps"=>$apps
         ]);
+    }
+
+    public function editDemand($id)
+    {
+        $apps=$this->getApps();
+        $situations =$this->getSituations();
+        $demand = DemandModel::findOrFail($id);
+
+        return View('demands.forms.edit-demand', [
+            "demand"=>$demand,
+            "situations"=>$situations,
+            "apps"=>$apps
+        ]);
+    }
+    public function updateDemand(Request $request, $id)
+    {
+        $validated = $request->validate(
+            [
+                'title'=>'required',
+                'description'=>'required',
+                'status_id'=>'required',
+                'app_id'=>'required'
+            ]);
+
+        $demand = DemandModel::findOrFail($id);
+        $demand->title=$request['title'];
+        $demand->description=$request['description'];
+        $demand->app_id=$request['app_id'];
+        $demand->status_id=$request['status_id'];
+        $demand->undertaking_id=0;
+        $demand->save();
+        return redirect('demands');
     }
     public function destroyDemand($id)
     {

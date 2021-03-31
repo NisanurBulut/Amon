@@ -147,8 +147,7 @@ class SettingsController extends Controller
         return View('settings.forms.edit-status',
         ['id'=>$id,
         'status'=>$status,
-        'items'=> $items,
-        'itemSelected'=>$status->color_id]);
+        'items'=> $items]);
     }
     public function updateStatus(Request $request, $id)
     {

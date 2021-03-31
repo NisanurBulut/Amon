@@ -5,7 +5,7 @@
       <input type="text" name="name" placeholder="Tanım" required value={{ $status->name }} />
     </div>
     <div class="field">
-      <x-shared.combobox :items="$items"  :itemSelected="$itemSelected"
+      <x-shared.combobox :items="$items"  :itemSelected="$status->color_id"
       placeholder="Renk" attrId="color_id"/>
     </div>
     <div class="formBtnRightAlligned">

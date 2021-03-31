@@ -7,7 +7,9 @@
       <p class="ui label tiny {{ $demand->color }}">{{ $demand->status }} / {{ $demand->state }}</p>
     </div>
     <div class="right floated">
-      <i class="ui icon edit blue"></i>
+      <a class="btnModalOpen" href="/demands/editDemand/{{ $demand->id }}">
+        <i class="ui icon edit blue"></i>
+      </a>
       <a class="btnConfirmModalOpen" href="{{ route('demands.destroyDemand', $demand->id) }}">
         <i class="ui icon trash red"></i>
       </a>
