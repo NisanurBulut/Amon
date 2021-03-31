@@ -1,6 +1,5 @@
 $(".tabItem").tab();
 $(".ui.modal").modal();
 $('.ui.dropdown').dropdown();
-$('.tooltip')
-  .popup()
-;
+$('.tooltip').popup();
+$('.ui.toggle.input').toggle();
