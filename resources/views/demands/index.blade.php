@@ -18,10 +18,12 @@
         </div>
       </div>
       <div class="ui bottom attached segment" id="divSearchContent">
-        <div class="ui cards">
-            @for ($i = 0; $i < 20; $i++)
-            <x-demand-item />
-        @endfor
-        </div>
+        <div class="ui grid">
+          @for ($i = 0; $i < 20; $i++)
+              <div class="four wide column centerGridItems">
+                <x-demand-item />
+              </div>
+          @endfor
+      </div>
       </div>
 @endsection

@@ -27,3 +27,8 @@
         display: flex;
         justify-content: flex-end;
       }
+
+      .centerGridItems {
+        display: flex !important;
+        justify-content: center !important;
+      }

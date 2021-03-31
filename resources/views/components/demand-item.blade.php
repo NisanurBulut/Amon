@@ -1,4 +1,4 @@
-<div class="red card">
+<div class="ui red card">
     <div class="content">
       <img class="right floated mini ui image" src="https://t3.ftcdn.net/jpg/02/59/39/46/240_F_259394679_GGA8JJAEkukYJL9XXFH2JoC3nMguBPNH.jpg">
       <div class="header">
