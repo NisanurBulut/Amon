@@ -64,7 +64,8 @@ class SettingsController extends Controller
         $color->description=$request['description'];
 
         $color->save();
-        return back();
+        return back()->with('type','blue')->with('icon','check')
+        ->with('notification','Renk bilgisi başarıyla kaydedilmiştir.');
     }
     public function storeStatus(Request $request)
     {
@@ -77,7 +78,8 @@ class SettingsController extends Controller
         $status->color_id=$request['color_id'];
 
         $status->save();
-        return back();
+        return back()->with('type','blue')->with('icon','check')
+        ->with('notification','Durum bilgisi başarıyla kaydedilmiştir.');
     }
     public function updateState(Request $request,$id)
     {
@@ -88,7 +90,8 @@ class SettingsController extends Controller
         $state = StateModel::find($id);
         $state->name=$request['name'];
         $state->save();
-        return back();
+        return back()->with('type','blue')->with('icon','check')
+        ->with('notification','Aşama bilgisi başarıyla güncellenmiştir.');
     }
     public function editState($id)
     {
@@ -104,7 +107,8 @@ class SettingsController extends Controller
         $state = new StateModel();
         $state->name=$request['name'];
         $state->save();
-        return back();
+        return back()->with('type','blue')->with('icon','check')
+        ->with('notification','Aşama bilgisi başarıyla kaydedilmiştir.');
     }
 
     public function destroyState($id)
@@ -115,7 +119,8 @@ class SettingsController extends Controller
 
         $state = DB::table('tstate')->where('id',$id);
         $state->delete();
-        return back()->with('message','Aşama silme işlemi başarıyla gerçekleşti');
+        return back()->with('type','blue')->with('icon','check')
+        ->with('notification','Aşama silme işlemi başarıyla gerçekleştirilmiştir.');
     }
     public function editColor($id)
     {
@@ -134,26 +139,31 @@ class SettingsController extends Controller
         $color->description=$request['description'];
 
         $color->save();
-        return back();
+        return back()->with('type','blue')->with('icon','check')
+        ->with('notification','Renk bilgisi başarıyla güncellenmiştir.');
     }
     public function destroyColor($id)
     {
         if (DB::table('tdemand')->where('color_id', $id)->exists()) {
-            return back()->with('message','Bu renkle ilişkili talep bbulunmaktadır. İşlem iptal edilmiştir.');
+            return back()->with('type','red')->with('icon','times')
+            ->with('notification','Bu renkle ilişkili talep bbulunmaktadır. İşlem iptal edilmiştir.');
          }
         $state = DB::table('tcolor')->where('id',$id);
         $state->delete();
-        return back();
+        return back()->with('type','blue')->with('icon','check')
+        ->with('notification','Renk silme işlemi başarıyla gerçekleştirilmiştir.');
     }
     public function destroyStatus($id)
     {
         if (DB::table('tdemand')->where('status_id', $id)->exists()) {
-           return back()->with('message','Bu durumla ilişkili talep bbulunmaktadır. İşlem iptal edilmiştir.');
+           return back()->with('type','red')->with('icon','times')
+           ->with('notification','Bu durumla ilişkili talep bbulunmaktadır. İşlem iptal edilmiştir.');
         }
 
         $status = DB::table('tstatus')->where('id',$id);
         $status->delete();
-        return back();
+        return back()->with('type','blue')->with('icon','check')
+        ->with('notification','Durum silme işlemi başarıyla gerçekleştirilmiştir.');
     }
     public function editStatus($id)
     {
@@ -176,6 +186,7 @@ class SettingsController extends Controller
         $status->color_id=$request['color_id'];
 
         $status->save();
-        return back();
+        return back()->with('type','blue')->with('icon','check')
+        ->with('notification','Durum bilgisi başarıyla güncellenmiştir.');
     }
 }

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Apps;
 
+use DB;
 use App\Models\AppModel;
+use App\Models\DemandModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use DB;
+
 class AppsController extends Controller
 {
     public function index()
@@ -25,6 +27,11 @@ class AppsController extends Controller
     }
     public function destroyApp($id)
     {
+        if (DB::table('tdemand')->where('app_id', $id)->exists()) {
+            return back()->with('type','red')->with('icon','times')
+            ->with('notification','Uygulamayla ilişkili talep bulunmuştur. işlem iptal edilmiştir.');
+         }
+
         $appEntity = DB::table('tapp')->where('id',$id);
         $appEntity->delete();
         return redirect('apps')->with('type','blue')->with('icon','check')
