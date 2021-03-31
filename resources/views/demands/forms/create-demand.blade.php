@@ -1,4 +1,4 @@
-<form class="ui form" method="POST" action="{{ route('demands.storeDemand') }}">
+<form class="ui form" autocomplete="off" method="POST" action="{{ route('demands.storeDemand') }}">
     @csrf()
     <h4 class="ui dividing header">Talep Bilgileri</h4>
     <div class="two fields">
