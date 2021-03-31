@@ -55,7 +55,7 @@ class AppsController extends Controller
 
     public function updateApp(Request $request,$id)
     {
-        $this->validate($request, [
+        $validated =  $this->validate($request, [
             'name' => 'required|max:100',
             'description' => 'required|max:500',
             'url_address'=> 'required|max:100',
