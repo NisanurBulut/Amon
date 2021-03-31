@@ -14,9 +14,11 @@
             </div>
         </div>
         <div class="right menu">
+            @if (auth()->user()->is_admin)
             <a class="ui item mini btnModalOpen" href="{{ route('users.createUser') }}">
                 <i class="plus icon large green center aligned"></i>
             </a>
+            @endif
         </div>
     </div>
     <div class="ui bottom attached segment" id="divSearchContent">

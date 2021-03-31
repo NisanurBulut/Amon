@@ -28,7 +28,7 @@
                 {{ $user->email }}</p>
         </div>
     </div>
-
+    @if (auth()->user()->is_admin)
     <div class="extra content">
         <a onclick="event.preventDefault()" class="left floated edit btnModalOpen" href="/users/editUser/{{ $user->id }}">
             <i class="edit blue icon"></i>
@@ -38,4 +38,5 @@
             <i class="trash red icon"></i>
         </a>
     </div>
+    @endif
 </div>
