@@ -9,7 +9,7 @@ class AuthController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        // $this->middleware('guest');
     }
     public function index()
     {
@@ -29,4 +29,10 @@ class AuthController extends Controller
         };
         return redirect()->route('demands.index');
     }
+
+       public function storeLogout(){
+
+        auth()->logout();
+        return redirect()->route('auth.login');
+       }
 }

@@ -16,6 +16,8 @@ Route::get('/', function () {
 
 Route::get('/login',[AuthController::class, 'index'])->name('auth.login');
 Route::post('/storeLogin',[AuthController::class, 'storeLogin'])->name('auth.store');
+Route::get('/storeLogout',[AuthController::class, 'storeLogout'])->name('auth.storeLogout');
+
 
 Route::get('/settings',[SettingsController::class, 'index'])->name('settings.index');
 Route::get('/settings/createStatus',[SettingsController::class, 'createStatus'])->name('settings.createStatus');
