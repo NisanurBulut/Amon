@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Demands;
 
 use DB;
+use App\Models\AppModel;
 use App\Models\DemandModel;
+use App\Models\StatusModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -33,6 +35,11 @@ class DemandsController extends Controller
     }
     public function createDemand()
     {
-        return View('demands.forms.create-demand');
+        $apps = AppModel::select('id','name')->get();
+        $situations = StatusModel::select('id','name')->get();
+        return View('demands.forms.create-demand', [
+            "situations"=>$situations,
+            "apps"=>$apps
+        ]);
     }
 }
