@@ -43,6 +43,6 @@ class UsersController extends Controller
         $user->image_url=$request['image_url'];
 
         $user->save();
-        return redirect('users.index');
+        return redirect('users');
     }
 }
