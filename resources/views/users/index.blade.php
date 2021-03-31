@@ -20,9 +20,9 @@
         </div>
     </div>
     <div class="ui bottom attached segment" id="divSearchContent">
-        <div class="ui four column grid">
+        <div class="ui grid">
             @foreach ($users as $user)
-                <div class="column">
+                <div class="four wide column" style="display: flex;justify-content:center;">
                     <x-users.user-item :user="$user" />
                 </div>
             @endforeach

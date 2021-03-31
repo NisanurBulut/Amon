@@ -1,7 +1,7 @@
 @props(['user' => $user])
 <x-shared.modal />
 <x-shared.confirm />
-<div class="ui fluid card">
+<div class="ui card">
     <div class="content">
         @if ($user->is_admin)
             <i class="right floated star yellow icon"></i>
