@@ -12,7 +12,7 @@
           </div>
         </div>
         <div class="right menu">
-          <a href={{ route('demands.create') }} class="ui item">
+          <a href={{ route('demands.createDemand') }} class="ui item">
             <i class="plus icon large green"></i>
           </a>
         </div>
