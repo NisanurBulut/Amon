@@ -135,4 +135,11 @@ class DemandsController extends Controller
         $demand->save();
         return redirect('demands');
     }
+    public function undertakeDemand($id)
+    {
+        $demand = DemandModel::findOrFail($id);
+        $demand->state_id= 6;
+        $demand->save();
+        return redirect('demands');
+    }
 }

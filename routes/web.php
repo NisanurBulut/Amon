@@ -51,6 +51,7 @@ Route::post('/demands/storeDemand',[DemandsController::class, 'storeDemand'])->n
 Route::get('/demands/editDemand/{id}',[DemandsController::class, 'editDemand'])->name('demands.editDemand');
 Route::post('/demands/updateDemand/{id}',[DemandsController::class, 'updateDemand'])->name('demands.updateDemand');
 Route::delete('/demands/destroyDemand/{id}',[DemandsController::class, 'destroyDemand'])->name('demands.destroyDemand');
+Route::get('/demands/undertakeDemand/{id}',[DemandsController::class, 'undertakeDemand'])->name('demands.undertakeDemand');
 
 
 Route::get('/apps',[AppsController::class,'index'])->name('apps.index');
