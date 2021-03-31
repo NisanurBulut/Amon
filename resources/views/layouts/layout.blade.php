@@ -76,17 +76,26 @@
 
         </div>
     </div>
-
     <div class="" id="content">
-        @yield('content')
 
-        <div {{ Session::has('notification') ? 'data-notification' : '' }}
-            data-notification-type='{{ Session::get('alert_type', 'info') }}'
-            data-notification-message='{{ json_encode(Session::get('message')) }}'>
-
+        @if (Session::has('notification'))
+        <div class="message"
+        id="messageBox" style="margin-bottom:1rem;float:right; max-width:50%;">
+            <div class="ui {{ session('type') }} icon message">
+                <i class="{{ session('icon') }} icon"></i>
+                <i class="close icon"></i>
+                <div class="content">
+                  <div class="header">
+                    {{ session('header') }}
+                  </div>
+                  <p>{{ session('notification') }}</p>
+                </div>
+              </div>
         </div>
+        @endif
+        @yield('content')
     </div>
-    </div>
+</div>
 </body>
 {{-- dependencies --}}
 <script src="{{ asset('js/jquery.js') }}" defer></script>

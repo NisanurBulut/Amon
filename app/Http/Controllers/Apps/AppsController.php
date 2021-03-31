@@ -27,7 +27,8 @@ class AppsController extends Controller
     {
         $appEntity = DB::table('tapp')->where('id',$id);
         $appEntity->delete();
-        return redirect('apps')->with('message','Silme işlemi başarıyla gerçekleşti');
+        return redirect('apps')->with('type','blue')->with('icon','check')
+        ->with('notification','Silme işlemi başarıyla gerçekleşti.');
     }
 
     public function storeApp(Request $request)
@@ -44,7 +45,8 @@ class AppsController extends Controller
         $appEntity->url_address = $request['url_address'];
         $appEntity->url_icon = $request['url_icon'];
         $appEntity->save();
-        return redirect('apps');
+        redirect('apps')->with('type','blue')->with('icon','check')
+        ->with('notification','Uygulama başarıyla kaydedildi.');
     }
     public function editApp($id)
     {
@@ -69,6 +71,7 @@ class AppsController extends Controller
         $app->url_address = $request['url_address'];
         $app->url_icon = $request['url_icon'];
         $app->save();
-        return redirect('apps');
+        return redirect('apps')->with('type','blue')->with('icon','check')
+        ->with('notification','Uygulama başarıyla güncellendi.');
     }
 }
