@@ -25,7 +25,7 @@ class AuthController extends Controller
 
         if(!auth()->attempt($request->only('username','password')))
         {
-            return back()->with('status','Invalid Login Details');
+            return back()->with('status','Kimlik doğrulanamadı.');
         };
         return redirect()->route('demands.index');
     }

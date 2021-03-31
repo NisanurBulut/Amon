@@ -9,8 +9,13 @@
       </div>
     </h2>
     @if(session('status'))
-    <div class="bg-red-300 p-4 rounded-lg mb-6 text-white text-center">
-    {{ session('status')}}</div>
+    <div class="ui red icon message">
+      <i class="exclamation icon"></i>
+      <div class="content">
+        <p>{{ session('status')}}</p>
+      </div>
+    </div>
+
     @endif
     <form class="ui large form" method="POST" action="{{ route('auth.store') }}">
         @csrf()
