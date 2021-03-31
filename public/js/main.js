@@ -51,8 +51,8 @@ $(document).ready(function () {
         let href = $(this).attr("href");
         loadModal(href, "sharedModal");
     });
+
     $(document).on("click", ".btnConfirmModalOpen", function (event) {
-        debugger;
         event.preventDefault();
         let href = $(this).attr("href");
         $("#confirmDeleteForm").attr("action", href);

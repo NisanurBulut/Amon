@@ -45,7 +45,6 @@ class UsersController extends Controller
     public function editUser($id)
     {
         $user = User::findOrFail($id);
-
         return View('users.forms.edit-user', ['id'=>$id, 'user'=>$user]);
     }
     public function destroyUser($id)
