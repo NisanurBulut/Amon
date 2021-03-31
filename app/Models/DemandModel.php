@@ -16,4 +16,9 @@ class DemandModel extends Model
                          "app_id",
                          "owner_id",
                          "undertaking_id"];
+
+    public function OwnedOrIsAdminBy(User $user)
+    {
+        return $this->owner_id===$user->id || $user->is_admin===true;
+    }
 }

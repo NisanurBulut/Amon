@@ -7,12 +7,14 @@
       <p class="ui label tiny {{ $demand->color }}">{{ $demand->status }} / {{ $demand->state }}</p>
     </div>
     <div class="right floated">
+      @if ($demand->OwnedOrIsAdminBy(auth()->user()))
       <a class="btnModalOpen" href="/demands/editDemand/{{ $demand->id }}">
         <i class="ui icon edit blue"></i>
       </a>
       <a class="btnConfirmModalOpen" href="{{ route('demands.destroyDemand', $demand->id) }}">
         <i class="ui icon trash red"></i>
       </a>
+      @endif
     </div>
   </div>
     <div class="content">

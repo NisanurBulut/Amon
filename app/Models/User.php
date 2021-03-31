@@ -34,10 +34,6 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-    public function OwnedOrIsAdminBy(User $user)
-    {
-        return $this->user_id===$user->id || $user->is_admin===true;
-    }
     /**
      * The attributes that should be cast to native types.
      *

@@ -29,8 +29,7 @@ class DemandsController extends Controller
         $user = Auth::user();
         if($user->is_admin==true)
 
-            $demands = DB::table('tdemand')
-                ->join('tstatus', 'tstatus.id', '=', 'tdemand.status_id')
+            $demands = DemandModel::join('tstatus', 'tstatus.id', '=', 'tdemand.status_id')
                 ->join('tcolor', 'tcolor.id', '=', 'tstatus.color_id')
                 ->join('users', 'users.id', '=', 'tdemand.owner_id')
                 ->leftJoin('users as tuser', 'tuser.id', '=', 'tdemand.undertaking_id')
@@ -46,8 +45,7 @@ class DemandsController extends Controller
                 'tstatus.name as status',
                 'tstate.name as state')->orderBy('tdemand.created_at', 'DESC')->get();
                 else
-                $demands = DB::table('tdemand')
-                ->where('owner_id',$user->id)
+                $demands = DemandModel::where('owner_id',$user->id)
                 ->join('tstatus', 'tstatus.id', '=', 'tdemand.status_id')
                 ->join('tcolor', 'tcolor.id', '=', 'tstatus.color_id')
                 ->join('users', 'users.id', '=', 'tdemand.owner_id')
