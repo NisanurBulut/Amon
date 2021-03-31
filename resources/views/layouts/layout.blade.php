@@ -31,11 +31,12 @@
                 <div class="item">
                     <div class="ui small input"><input placeholder="Search..." /></div>
                 </div>
-                <a class="item" href="{{ route('settings.index') }}">
-                    <i class="settings icon large tooltip" data-content="Ayarlar"></i>
-                </a>
                 <a class="item">
                     <i class="bolt icon large tooltip" data-content="Dashboard"></i>
+                </a>
+                @if (auth()->user()->is_admin)
+                <a class="item" href="{{ route('settings.index') }}">
+                    <i class="settings icon large tooltip" data-content="Ayarlar"></i>
                 </a>
                 <a class="item" href="{{ route('demands.index') }}">
                     <i class="tasks icon large tooltip" data-content="Talepler"></i>
@@ -46,6 +47,7 @@
                 <a class="item" href="{{ route('apps.index') }}">
                     <i class="rocket icon large tooltip" data-content="Uygulamalar"></i>
                 </a>
+                @endif
                 <a class="item">
                     <i class="user circle icon large tooltip" data-content="Profil"></i>
                 </a>
