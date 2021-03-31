@@ -72,3 +72,4 @@ Route::delete('/users/destroyUser/{id}',[UsersController::class, 'destroyUser'])
 
 Route::get('/shared/getStates',[SharedController::class, 'getStates'])->name('shared.getStates');
 Route::get('/shared/getSituations',[SharedController::class, 'getSituations'])->name('shared.getSituations');
+Route::get('/shared/getApps',[SharedController::class, 'getApps'])->name('shared.getApps');
