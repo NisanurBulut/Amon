@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SharedController;
 use App\Http\Controllers\Apps\AppsController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Users\UsersController;
@@ -67,3 +68,7 @@ Route::post('/users/storeUser',[UsersController::class, 'storeUser'])->name('use
 Route::get('/users/editUser/{id}',[UsersController::class, 'editUser'])->name('users.editUser');
 Route::post('/users/updateUser/{id}',[UsersController::class, 'updateUser'])->name('users.updateUser');
 Route::delete('/users/destroyUser/{id}',[UsersController::class, 'destroyUser'])->name('users.destroyUser');
+
+
+Route::get('/shared/getStates',[SharedController::class, 'getStates'])->name('shared.getStates');
+Route::get('/shared/getSituations',[SharedController::class, 'getSituations'])->name('shared.getSituations');

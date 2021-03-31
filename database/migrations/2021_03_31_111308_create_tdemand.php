@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTableTdemand extends Migration
+class CreateTdemand extends Migration
 {
     /**
      * Run the migrations.
@@ -15,13 +15,13 @@ class CreateTableTdemand extends Migration
     {
         Schema::create('tdemand', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description');
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
             $table->integer('state_id')->nullable();
-            $table->integer('status_id');
+            $table->integer('status_id')->nullable();
             $table->integer('owner_id');
             $table->integer('undertaking_id')->nullable()->change();;
-            $table->integer('app_id');
+            $table->integer('app_id')->nullable();
             $table->timestamps();
         });
     }
