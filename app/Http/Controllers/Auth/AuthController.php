@@ -7,17 +7,26 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
     public function index()
     {
-        return View('auth.index');
+        return View('auth.login');
     }
-    public function register()
+
+    public function storeLogin(Request $request)
     {
-        dd(350);
-        return view('auth.register');
-    }
-    public function login()
-    {
-       return view('auth.login');
+        $this->validate($request, [
+            'username'=>'required',
+            'password'=>'required',
+        ]);
+
+        if(!auth()->attempt($request->only('username','password')))
+        {
+            return back()->with('status','Invalid Login Details');
+        };
+        return redirect()->route('demands.index');
     }
 }

@@ -11,6 +11,10 @@ use App\Http\Controllers\Controller;
 
 class DemandsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
     private function getApps()
     {
         return AppModel::select('id','name')->get();

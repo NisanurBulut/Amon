@@ -26,7 +26,6 @@
             <a class="header item" href="{{ route('welcome') }}">AMON</a>
             <div class="right menu">
                 <a class="item" {{ route('auth.login') }}>Login</a>
-                <a class="item" {{ route('auth.register') }}>Register</a>
             </div>
         </div>
     </div>

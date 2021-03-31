@@ -13,14 +13,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/register',[AuthController::class, 'register'])->name('auth.register');
-Route::post('/register',[AuthController::class, 'registerStore']);
 
-Route::get('/login',[AuthController::class, 'login'])->name('auth.login');
-Route::post('/login',[AuthController::class, 'loginStore']);
+Route::get('/login',[AuthController::class, 'index'])->name('auth.login');
+Route::post('/storeLogin',[AuthController::class, 'storeLogin'])->name('auth.store');
 
 Route::get('/settings',[SettingsController::class, 'index'])->name('settings.index');
-
 Route::get('/settings/createStatus',[SettingsController::class, 'createStatus'])->name('settings.createStatus');
 Route::post('/settings/storeStatus',[SettingsController::class, 'storeStatus'])->name('settings.storeStatus');
 Route::get('/settings/getSituations',[SettingsController::class, 'getSituations'])->name('settings.getSituations');
@@ -68,8 +65,3 @@ Route::post('/users/storeUser',[UsersController::class, 'storeUser'])->name('use
 Route::get('/users/editUser/{id}',[UsersController::class, 'editUser'])->name('users.editUser');
 Route::post('/users/updateUser/{id}',[UsersController::class, 'updateUser'])->name('users.updateUser');
 Route::delete('/users/destroyUser/{id}',[UsersController::class, 'destroyUser'])->name('users.destroyUser');
-
-
-Route::get('/shared/getStates',[SharedController::class, 'getStates'])->name('shared.getStates');
-Route::get('/shared/getSituations',[SharedController::class, 'getSituations'])->name('shared.getSituations');
-Route::get('/shared/getApps',[SharedController::class, 'getApps'])->name('shared.getApps');

@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers\Users;
 
+use DB;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
+
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
+
     public function index()
     {
         $users = User::select('id','is_admin','name','username','created_at','image_url','email')->orderBy('created_at','DESC')->get();
@@ -32,7 +40,7 @@ class UsersController extends Controller
         $user->name= $request['name'];
         $user->username=$request['username'];
         $user->email= $request['email'];
-        $user->password=$request['password'];
+        $user->password=Hash::make($request['password']);
         if(isset($request['is_admin']))
         $user->is_admin = true;
         else
@@ -45,6 +53,7 @@ class UsersController extends Controller
     public function editUser($id)
     {
         $user = User::findOrFail($id);
+
         return View('users.forms.edit-user', ['id'=>$id, 'user'=>$user]);
     }
     public function destroyUser($id)
@@ -67,7 +76,7 @@ class UsersController extends Controller
         $user->name= $request['name'];
         $user->username=$request['username'];
         $user->email= $request['email'];
-        $user->password=$request['password'];
+        $user->password=Hash::make($request['password']);
         if(isset($request['is_admin']))
         $user->is_admin = true;
         else
