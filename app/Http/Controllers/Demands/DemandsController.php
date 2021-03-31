@@ -8,6 +8,7 @@ use App\Models\DemandModel;
 use App\Models\StatusModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class DemandsController extends Controller
 {
@@ -104,7 +105,7 @@ class DemandsController extends Controller
         $demand = new DemandModel();
         $demand->title=$request['title'];
         $demand->description=$request['description'];
-        $demand->owner_id=1;
+        $demand->owner_id=Auth::user()->id;
         $demand->app_id=$request['app_id'];
         $demand->status_id=$request['status_id'];
         $demand->state_id=4;
