@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Users;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use DB;
 class UsersController extends Controller
 {
     public function index()
@@ -24,7 +24,6 @@ class UsersController extends Controller
             'name' => 'required',
             'email' => 'required',
             'password' => 'required',
-            'is_admin'=> 'required',
             'username'=>'required',
             'image_url'=>'required|max:200'
         ]);
@@ -34,14 +33,48 @@ class UsersController extends Controller
         $user->username=$request['username'];
         $user->email= $request['email'];
         $user->password=$request['password'];
-        if($request['is_admin']=="on")
-        {
-            $user->is_admin = true;
-        }else{
-            $user->is_admin = false;
-        }
+        if(isset($request['is_admin']))
+        $user->is_admin = true;
+        else
+        $user->is_admin = false;
         $user->image_url=$request['image_url'];
 
+        $user->save();
+        return redirect('users');
+    }
+    public function editUser($id)
+    {
+        $user = User::findOrFail($id);
+
+        return View('users.forms.edit-user', ['id'=>$id, 'user'=>$user]);
+    }
+    public function destroyUser($id)
+    {
+        $userEntity = DB::table('tUser')->where('id',$id);
+        $userEntity->delete();
+        return redirect('users')->with('message','Silme işlemi başarıyla gerçekleşti');
+    }
+    function updateUser(Request $request, $id)
+    {
+        $validateResult = $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'username'=>'required',
+            'image_url'=>'required|max:200'
+        ]);
+
+        $user = User::findOrFail($id);
+        $user->name= $request['name'];
+        $user->username=$request['username'];
+        $user->email= $request['email'];
+        $user->password=$request['password'];
+        if(isset($request['is_admin']))
+        $user->is_admin = true;
+        else
+        $user->is_admin = false;
+
+        $user->image_url=$request['image_url'];
         $user->save();
         return redirect('users');
     }

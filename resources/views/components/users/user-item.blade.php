@@ -28,11 +28,11 @@
     </div>
 
     <div class="extra content">
-        <span class="left floated edit">
+        <a class="left floated edit btnModalOpen" href="/users/editUser/{{ $user->id }}">
             <i class="edit blue icon"></i>
-        </span>
-        <span class="right floated trash">
+        </a>
+        <a class="right floated trash btnConfirmModalOpen" href="/users/destroyUser/{{ $user->id }}">
             <i class="trash red icon"></i>
-        </span>
+        </a>
     </div>
 </div>

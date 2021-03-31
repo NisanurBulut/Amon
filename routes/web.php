@@ -60,3 +60,6 @@ Route::post('/apps/updateApp/{id}',[AppsController::class, 'updateApp'])->name('
 Route::get('/users',[UsersController::class,'index'])->name('users.index');
 Route::get('/users/createUser',[UsersController::class,'createUser'])->name('users.createUser');
 Route::post('/users/storeUser',[UsersController::class, 'storeUser'])->name('users.storeUser');
+Route::get('/users/editUser/{id}',[UsersController::class, 'editUser'])->name('users.editUser');
+Route::post('/users/updateUser/{id}',[UsersController::class, 'updateUser'])->name('users.updateUser');
+Route::delete('/users/destroyUser/{id}',[UsersController::class, 'destroyUser'])->name('apps.destroyUser');

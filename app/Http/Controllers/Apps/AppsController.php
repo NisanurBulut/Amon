@@ -27,7 +27,7 @@ class AppsController extends Controller
     {
         $appEntity = DB::table('tapp')->where('id',$id);
         $appEntity->delete();
-        return redirect('apps')->with('message','Aşama silme işlemi başarıyla gerçekleşti');
+        return redirect('apps')->with('message','Silme işlemi başarıyla gerçekleşti');
     }
 
     public function storeApp(Request $request)
