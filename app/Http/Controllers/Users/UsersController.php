@@ -50,7 +50,7 @@ class UsersController extends Controller
     }
     public function destroyUser($id)
     {
-        $userEntity = DB::table('tUser')->where('id',$id);
+        $userEntity = DB::table('users')->where('id',$id);
         $userEntity->delete();
         return redirect('users')->with('message','Silme işlemi başarıyla gerçekleşti');
     }

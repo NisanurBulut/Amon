@@ -52,9 +52,9 @@ $(document).ready(function () {
         loadModal(href, "sharedModal");
     });
     $(document).on("click", ".btnConfirmModalOpen", function (event) {
+        debugger;
         event.preventDefault();
         let href = $(this).attr("href");
-        let id = $(this).attr("id");
         $("#confirmDeleteForm").attr("action", href);
         $("#confirmModal").modal("setting", "closable", false).modal("show");
     });

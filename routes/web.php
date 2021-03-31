@@ -62,4 +62,4 @@ Route::get('/users/createUser',[UsersController::class,'createUser'])->name('use
 Route::post('/users/storeUser',[UsersController::class, 'storeUser'])->name('users.storeUser');
 Route::get('/users/editUser/{id}',[UsersController::class, 'editUser'])->name('users.editUser');
 Route::post('/users/updateUser/{id}',[UsersController::class, 'updateUser'])->name('users.updateUser');
-Route::delete('/users/destroyUser/{id}',[UsersController::class, 'destroyUser'])->name('apps.destroyUser');
+Route::delete('/users/destroyUser/{id}',[UsersController::class, 'destroyUser'])->name('users.destroyUser');

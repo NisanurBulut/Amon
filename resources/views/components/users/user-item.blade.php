@@ -1,4 +1,6 @@
 @props(['user' => $user])
+<x-shared.modal />
+<x-shared.confirm />
 <div class="ui card">
     <div class="content">
         @if ($user->is_admin)
@@ -28,10 +30,11 @@
     </div>
 
     <div class="extra content">
-        <a class="left floated edit btnModalOpen" href="/users/editUser/{{ $user->id }}">
+        <a onclick="event.preventDefault()" class="left floated edit btnModalOpen" href="/users/editUser/{{ $user->id }}">
             <i class="edit blue icon"></i>
         </a>
-        <a class="right floated trash btnConfirmModalOpen" href="/users/destroyUser/{{ $user->id }}">
+        <a class="right floated trash btnConfirmModalOpen"
+          id="{{ $user->id }}"  href="{{ route('users.destroyUser', $user->id) }}">
             <i class="trash red icon"></i>
         </a>
     </div>
