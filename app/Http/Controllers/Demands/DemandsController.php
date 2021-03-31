@@ -22,7 +22,8 @@ class DemandsController extends Controller
     }
     private function getSituations()
     {
-        return StatusModel::select('id','name')->get();
+        return StatusModel::join('tcolor', 'tcolor.id', '=', 'color_id')
+        ->select('tstatus.id as id','tstatus.name as name','tcolor.name as color')->get();
     }
     public function index()
     {

@@ -42,7 +42,7 @@ class SettingsController extends Controller
     }
     public function createStatus()
     {
-        $items = ColorModel::select('id as id','description as name')->get();
+        $items = ColorModel::select('id as id','description as name', 'name as color')->get();
         return View('settings.forms.create-status', ['items'=>$items, 'itemSelected'=>0]);
     }
     public function createState()
@@ -146,7 +146,7 @@ class SettingsController extends Controller
     }
     public function editStatus($id)
     {
-        $items = ColorModel::select('id as id','description as name')->get();
+        $items = ColorModel::select('id as id','description as name', 'name as color')->get();
         $status = StatusModel::findOrFail($id);
 
         return View('settings.forms.edit-status',
