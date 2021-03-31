@@ -21,7 +21,7 @@
         <div class="ui grid">
           @for ($i = 0; $i < 20; $i++)
               <div class="four wide column centerGridItems">
-                <x-demand-item />
+                <x-demands.demand-item />
               </div>
           @endfor
       </div>

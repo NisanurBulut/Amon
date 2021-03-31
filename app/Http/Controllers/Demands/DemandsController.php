@@ -11,8 +11,8 @@ class DemandsController extends Controller
     {
         return View('demands.index');
     }
-    public function create()
+    public function createDemand()
     {
-        return View('demands.create');
+        return View('demands.forms.create-demand');
     }
 }
