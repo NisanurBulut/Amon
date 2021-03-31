@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 @section('content')
 <x-shared.modal />
+
     <div class="ui top attached menu">
         <div class="left menu">
           <div class="ui left aligned category search item">
@@ -19,11 +20,11 @@
       </div>
       <div class="ui bottom attached segment" id="divSearchContent">
         <div class="ui grid">
-          @for ($i = 0; $i < 20; $i++)
-              <div class="four wide column centerGridItems">
-                <x-demands.demand-item />
-              </div>
-          @endfor
+          @foreach ($demands as $demand)
+          <div class="four wide column centerGridItems">
+            <x-demands.demand-item />
+          </div>
+          @endforeach
       </div>
       </div>
 @endsection

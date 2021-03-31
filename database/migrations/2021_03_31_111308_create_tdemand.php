@@ -20,7 +20,7 @@ class CreateTdemand extends Migration
             $table->integer('state_id')->nullable();
             $table->integer('status_id')->nullable();
             $table->integer('owner_id');
-            $table->integer('undertaking_id')->nullable()->change();;
+            $table->integer('undertaking_id')->nullable()->change();
             $table->integer('app_id')->nullable();
             $table->timestamps();
         });

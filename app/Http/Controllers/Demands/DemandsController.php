@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers\Demands;
 
-use App\Http\Controllers\Controller;
+use DB;
+use App\Models\DemandModel;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class DemandsController extends Controller
 {
     public function index()
     {
-        return View('demands.index');
+        $demands = DemandModel::select('id','title','description','state_id',
+        'status_id','owner_id','undertaking_id','app_id','created_at')->get();
+        return View('demands.index', ["demands"=>$demands]);
     }
     public function createDemand()
     {
