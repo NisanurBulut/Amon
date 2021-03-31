@@ -109,6 +109,10 @@ class SettingsController extends Controller
 
     public function destroyState($id)
     {
+        if (DB::table('tdemand')->where('state_id', $id)->exists()) {
+            return back()->with('message','Bu aşama ilişkili talep bbulunmaktadır. İşlem iptal edilmiştir.');
+         }
+
         $state = DB::table('tstate')->where('id',$id);
         $state->delete();
         return back()->with('message','Aşama silme işlemi başarıyla gerçekleşti');
@@ -134,12 +138,19 @@ class SettingsController extends Controller
     }
     public function destroyColor($id)
     {
+        if (DB::table('tdemand')->where('color_id', $id)->exists()) {
+            return back()->with('message','Bu renkle ilişkili talep bbulunmaktadır. İşlem iptal edilmiştir.');
+         }
         $state = DB::table('tcolor')->where('id',$id);
         $state->delete();
         return back();
     }
     public function destroyStatus($id)
     {
+        if (DB::table('tdemand')->where('status_id', $id)->exists()) {
+           return back()->with('message','Bu durumla ilişkili talep bbulunmaktadır. İşlem iptal edilmiştir.');
+        }
+
         $status = DB::table('tstatus')->where('id',$id);
         $status->delete();
         return back();
