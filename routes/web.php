@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Users\UsersController;
 use App\Http\Controllers\Demands\DemandsController;
 use App\Http\Controllers\Settings\SettingsController;
+use App\Http\Controllers\dashboard\DashboardController;
 
 
 Route::get('/', function () {
@@ -68,3 +69,5 @@ Route::post('/users/storeUser',[UsersController::class, 'storeUser'])->name('use
 Route::get('/users/editUser/{id}',[UsersController::class, 'editUser'])->name('users.editUser');
 Route::post('/users/updateUser/{id}',[UsersController::class, 'updateUser'])->name('users.updateUser');
 Route::delete('/users/destroyUser/{id}',[UsersController::class, 'destroyUser'])->name('users.destroyUser');
+
+Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard.index');

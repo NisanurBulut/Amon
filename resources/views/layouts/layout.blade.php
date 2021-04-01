@@ -32,7 +32,7 @@
                 <div class="item">
                     <div class="ui small input"><input placeholder="Search..." /></div>
                 </div>
-                <a class="item">
+                <a class="item" href="{{ route('dashboard.index') }}">
                     <i class="bolt icon large tooltip" data-content="Dashboard"></i>
                 </a>
                 @if (auth()->user()->is_admin)
