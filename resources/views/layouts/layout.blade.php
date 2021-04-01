@@ -90,6 +90,13 @@
 <script src="{{ asset('js/jquery.datatables.net.min.js') }} " defer></script>
 <script src="{{ asset('js/dataTables.semanticui.min.js') }}" defer></script>
 <script src="{{ asset('js/highcharts.js') }}" defer></script>
+<script src="{{ asset('js/highcharts-3d.js') }}" defer></script>
+<script src="{{ asset('js/highcharts.cylinder.js') }}" defer></script>
+<script src="{{ asset('js/highcharts.funnel3d.js') }}" defer></script>
+<script src="{{ asset('js/highcharts.pyramid3d.js') }}" defer></script>
+<script src="{{ asset('js/highcharts.exporting.js') }}" defer></script>
+<script src="{{ asset('js/highcharts.export-data.js') }}" defer></script>
+<script src="{{ asset('js/highcharts.accessibility.js') }}" defer></script>
 
 {{-- Manuels --}}
 <script src="{{ asset('js/app.js') }}" defer></script>

@@ -1,39 +1,41 @@
 @extends('layouts.layout')
 @section('content')
-    <div class="ui grid">
-        <div class="four wide column">
-            <div class="ui segment">
-                <x-dashboard.basicbar-chart />
+    <div class="ui column cards grid centerGridItems">
+        <div class="five wide column">
+            <div class="column">
+                <div class="ui segment">
+                    <x-dashboard.basicbar-chart />
+                </div>
             </div>
         </div>
-        <div class="four wide column">
+        <div class="five wide column">
             <div class="ui segment">
                 <x-dashboard.columndrilldown-chart />
             </div>
         </div>
-        <div class="four wide column">
+        <div class="five wide column">
             <div class="ui segment">
                 <x-dashboard.pie-chart />
             </div>
         </div>
-        <div class="four wide column">
+        <div class="five wide column">
             <div class="ui segment">
                 <x-dashboard.columnplacement-chart />
             </div>
         </div>
-        <div class="two wide column">
+        <div class="five wide column">
             <div class="ui segment">
-                <x-dashboard.columndrilldown-chart />
+                <x-dashboard.funnel-chart />
             </div>
         </div>
-        <div class="eight wide column">
+        <div class="five wide column">
             <div class="ui segment">
-                <x-dashboard.columndrilldown-chart />
+                <x-dashboard.pyramid3d-chart />
             </div>
         </div>
-        <div class="six wide column">
+        <div class="five wide column">
             <div class="ui segment">
-                <x-dashboard.columndrilldown-chart />
+                <x-dashboard.piedonut3d-chart />
             </div>
         </div>
     </div>

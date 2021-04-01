@@ -500,3 +500,118 @@ Highcharts.chart('columnplacementChart', {
         yAxis: 1
     }]
 });
+
+Highcharts.chart('funnelChart', {
+    chart: {
+        type: 'funnel3d',
+        options3d: {
+            enabled: true,
+            alpha: 10,
+            depth: 50,
+            viewDistance: 50
+        }
+    },
+    title: {
+        text: 'Highcharts Funnel3D Chart'
+    },
+    plotOptions: {
+        series: {
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b> ({point.y:,.0f})',
+                allowOverlap: true,
+                y: 10
+            },
+            neckWidth: '30%',
+            neckHeight: '25%',
+            width: '80%',
+            height: '80%'
+        }
+    },
+    series: [{
+        name: 'Unique users',
+        data: [
+            ['Website visits', 15654],
+            ['Downloads', 4064],
+            ['Requested price list', 1987],
+            ['Invoice sent', 976],
+            ['Finalized', 846]
+        ]
+    }]
+});
+
+// Set up the chart
+Highcharts.chart('pyramid3dChart', {
+    chart: {
+        type: 'pyramid3d',
+        options3d: {
+            enabled: true,
+            alpha: 10,
+            depth: 50,
+            viewDistance: 50
+        }
+    },
+    title: {
+        text: 'Highcharts Pyramid3D Chart'
+    },
+    plotOptions: {
+        series: {
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b> ({point.y:,.0f})',
+                allowOverlap: true,
+                x: 10,
+                y: -5
+            },
+            width: '60%',
+            height: '80%',
+            center: ['50%', '45%']
+        }
+    },
+    series: [{
+        name: 'Unique users',
+        data: [
+            ['Website visits', 15654],
+            ['Downloads', 4064],
+            ['Requested price list', 1987],
+            ['Invoice sent', 976],
+            ['Finalized', 846]
+        ]
+    }]
+});
+
+Highcharts.chart('piedonutChart', {
+    chart: {
+        type: 'pie',
+        options3d: {
+            enabled: true,
+            alpha: 45
+        }
+    },
+    title: {
+        text: 'Contents of Highsoft\'s weekly fruit delivery'
+    },
+    subtitle: {
+        text: '3D donut in Highcharts'
+    },
+    plotOptions: {
+        pie: {
+            innerSize: 100,
+            depth: 45
+        }
+    },
+    series: [{
+        name: 'Delivered amount',
+        data: [
+            ['Bananas', 8],
+            ['Kiwi', 3],
+            ['Mixed nuts', 1],
+            ['Oranges', 6],
+            ['Apples', 8],
+            ['Pears', 4],
+            ['Clementines', 4],
+            ['Reddish (bag)', 1],
+            ['Grapes (bunch)', 1]
+        ]
+    }]
+});
