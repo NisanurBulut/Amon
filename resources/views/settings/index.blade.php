@@ -8,7 +8,7 @@
             <a class="tabItem item" data-tab="tabStatusColor">Renk Tanımları</a>
         </div>
         <div class="main ui container">
-            <div class="ui tab segment" data-tab="tabDemandStatus" style="">
+            <div class="ui tab segment active" data-tab="tabDemandStatus" style="">
                 <x-demand-status />
             </div>
             <div class="ui tab segment" data-tab="tabDemandState" style="">
