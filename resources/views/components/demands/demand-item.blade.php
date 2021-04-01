@@ -32,7 +32,7 @@
     <div class="extra content">
         <div class="ui two buttons">
           <div class="ui basic red button">Askıya Al</div>
-            @if (auth()->user()->is_admin)
+            @if (auth()->user()->is_admin && $demand->undertaking_id<1)
                     <a class="ui basic green button" href="{{ route('demands.undertakeDemand', $demand->id) }}">Üstlen</a>
             @endif
         </div>
@@ -40,11 +40,12 @@
 
     <div class="extra content">
         <div class="left floated author">
-
             <div class="meta">10 hour ago</div>
         </div>
+        @if ($demand->underImage)
         <div class="right floated author">
-            <img class="ui avatar image" src="https://avatars.githubusercontent.com/u/37306467?v=4"> Matt
+            <img class="ui avatar image" src="{{ $demand->underImage }}"> {{ $demand->underName}}
         </div>
+        @endif
     </div>
 </div>

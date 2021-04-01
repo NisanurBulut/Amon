@@ -139,6 +139,7 @@ class DemandsController extends Controller
     {
         $demand = DemandModel::findOrFail($id);
         $demand->state_id= 6;
+        $demand->undertaking_id=Auth::user()->id;
         $demand->save();
         return redirect('demands');
     }
