@@ -1,6 +1,8 @@
 @props(['demand' => $demand])
 <x-shared.modal />
 <x-shared.confirm />
+
+
 <div class="ui {{ $demand->color }} card">
     <div class="content">
         <div class="left floated">
@@ -22,10 +24,10 @@
         <div class="header">
             {{ $demand->title }} hk.
         </div>
-        <div class="meta">
+        <div class="meta left floated">
             {{ $demand->ownerName }}
         </div>
-        <div class="description" style="overflow: auto;max-height: 100px;min-height:100px;">
+        <div class="description" style="overflow: auto;max-height: 15px;min-height:75px;">
             {{ $demand->description }}
         </div>
     </div>
@@ -40,7 +42,7 @@
 
     <div class="extra content">
         <div class="left floated author">
-            <div class="meta">10 hour ago</div>
+            {{ $demand->appName }}
         </div>
         @if ($demand->underImage)
         <div class="right floated author">
