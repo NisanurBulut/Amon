@@ -19,6 +19,7 @@ Amon is a demand management system. Users make a request and the administrator m
 - Only administrators can add new settings.
 - Only administrators can change and delete settings.
 - When the user logs in, they can see the dashboard screen.
+- Information messages are given for transactions.
 ### Installation
 - npm install
 - npm install -g gulp
