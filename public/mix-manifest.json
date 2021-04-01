@@ -6,6 +6,8 @@
     "/js/semantic.min.js": "/js/semantic.min.js",
     "/js/jquery.datatables.net.min.js": "/js/jquery.datatables.net.min.js",
     "/js/dataTables.semanticui.min.js": "/js/dataTables.semanticui.min.js",
+    "/js/highcharts.js": "/js/highcharts.js",
+    "/css/highcharts.css": "/css/highcharts.css",
     "/css/semantic.min.css": "/css/semantic.min.css",
     "/css/dataTables.semanticui.min.css": "/css/dataTables.semanticui.min.css",
     "/css/icon.min.css": "/css/icon.min.css"

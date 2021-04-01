@@ -18,6 +18,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/dataTables.semanticui.min.css') }}">
+    <link href="{{ asset('css/highcharts.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/icons.ttf') }}" rel="stylesheet">
 
     <link href="/css/main.css" rel="stylesheet">
@@ -88,6 +89,8 @@
 <script src="{{ asset('js/semantic.min.js') }}" defer></script>
 <script src="{{ asset('js/jquery.datatables.net.min.js') }} " defer></script>
 <script src="{{ asset('js/dataTables.semanticui.min.js') }}" defer></script>
+<script src="{{ asset('js/highcharts.js') }}" defer></script>
+
 {{-- Manuels --}}
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="{{ asset('js/activate.semanticui-components.js') }}" defer></script>
