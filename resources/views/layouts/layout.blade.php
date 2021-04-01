@@ -95,6 +95,8 @@
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="{{ asset('js/activate.semanticui-components.js') }}" defer></script>
 <script src="{{ asset('js/dataTables.load.js') }}" defer></script>
+<script src="{{ asset('js/dashboard.js') }}" defer></script>
+
 @yield('scripts')
 
 </html>
