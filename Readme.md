@@ -4,7 +4,7 @@ If you like or are using this project to learn or start your solution, please gi
 <hr>
 Amon is a demand management system. Users make a request and the administrator meets these requests. SemanticUI is used in frontend design. MySql is used for the database. Highchart library is used for charts. JQuery Datatable is used in data table representation.
 
-![AMON](https://github.com/NisanurBulut/Amon/blob/master/Trailers/Trailer_Amon.gif)
+![AMON](https://github.com/NisanurBulut/Amon/blob/master/Trailer_Amon.gif)
 
 - Administrator can add users to the application.
 - Not every user is an administrator.
